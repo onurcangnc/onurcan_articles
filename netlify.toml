@@ -7,18 +7,10 @@ HUGO_VERSION = "0.148.2"
 HUGO_ENABLEGITINFO = "true"
 
 [[redirects]]
-  from = "http://onurcanarticles.netlify.app/*"
-  to = "https://onurcanarticles.netlify.app/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "/admin/*"
   to = "/admin/index.html"
   status = 200
 
-[[redirects]]
-  from = "/#*"
-  to = "/admin/index.html"
-  status = 200
-  force = true
+[[edge_functions]]
+path = "/admin/*"
+function = "admin-auth"
