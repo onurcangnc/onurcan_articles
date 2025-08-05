@@ -1,32 +1,25 @@
 export default async (request, context) => {
-  const authHeader = request.headers.get("authorization");
+  const token = request.headers.get("authorization")?.replace("Bearer ", "");
 
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return new Response("401 Unauthorized: Missing token", {
-      status: 401,
-      headers: {
-        "WWW-Authenticate": "Bearer",
-      },
-    });
+  if (!token) {
+    return new Response("Unauthorized", { status: 401 });
   }
 
-  const token = authHeader.replace("Bearer ", "");
-
-  const res = await fetch("https://onurcangenc.eu.auth0.com/userinfo", {
+  const response = await fetch(`https://${process.env.AUTH0_DOMAIN}/userinfo`, {
     headers: {
-      Authorization: `Bearer ${token}`,
-    },
+      Authorization: `Bearer ${token}`
+    }
   });
 
-  if (!res.ok) {
-    return new Response("403 Forbidden: Invalid token", { status: 403 });
+  if (!response.ok) {
+    return new Response("Forbidden", { status: 403 });
   }
 
-  const user = await res.json();
+  const user = await response.json();
 
-  // Sadece senin erişimine izin ver
+  // Sadece senin kullanıcı adınla erişim ver
   if (user.nickname !== "onurcangnc") {
-    return new Response("403 Forbidden: Unauthorized user", { status: 403 });
+    return new Response("Access Denied", { status: 403 });
   }
 
   return context.next();
