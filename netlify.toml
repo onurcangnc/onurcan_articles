@@ -14,3 +14,8 @@ HUGO_ENABLEGITINFO = "true"
 [[edge_functions]]
 path = "/admin/*"
 function = "admin-auth"
+
+[[redirects]]
+  from = "/login"
+  to = "/login.html"
+  status = 200

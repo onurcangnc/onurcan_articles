@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Onurcan Articles</title>
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      margin: 0;
+      color: white;
+    }
+
+    .container {
+      text-align: center;
+      background: #1e2a38;
+      padding: 2rem 3rem;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.4);
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #29b6f6;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    button:hover {
+      background: #0288d1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Admin Panel Girişi</h1>
+    <p>Devam etmek için giriş yapın</p>
+    <button onclick="login()">Giriş Yap</button>
+  </div>
+
+<script>
+  const auth0 = await createAuth0Client({
+    domain: "dev-et2jvgh7d8b0m7sd.us.auth0.com",
+    clientId: "MF7MFjfh39hAu5D2n7XaN5nWN2HNE7bn",
+    authorizationParams: {
+      redirect_uri: window.location.origin + "/admin/"
+    }
+  });
+
+  async function login() {
+    await auth0.loginWithRedirect();
+  }
+
+  // Giriş sonrası geri dönüşü yakala ve cookie olarak kaydet
+  window.addEventListener("DOMContentLoaded", async () => {
+    if (window.location.search.includes("code=") && window.location.search.includes("state=")) {
+      await auth0.handleRedirectCallback();
+
+      const token = await auth0.getTokenSilently();
+      document.cookie = `auth_token=${token}; path=/; Secure; SameSite=Lax`;
+
+      // Admin paneli tekrar yükle
+      window.location.href = "/admin/";
+    }
+  });
+</script>
+
+</body>
+</html>

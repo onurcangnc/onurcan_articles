@@ -1,8 +1,14 @@
+function getCookie(name, cookieHeader) {
+  const match = cookieHeader?.match(new RegExp('(^| )' + name + '=([^;]+)'));
+  return match ? match[2] : null;
+}
+
 export default async (request, context) => {
-  const token = request.headers.get("authorization")?.replace("Bearer ", "");
+  const cookieHeader = request.headers.get("cookie");
+  const token = getCookie("auth_token", cookieHeader);
 
   if (!token) {
-    return new Response("Unauthorized", { status: 401 });
+    return new Response("401 Unauthorized: Missing token", { status: 401 });
   }
 
   const response = await fetch(`https://${process.env.AUTH0_DOMAIN}/userinfo`, {
@@ -12,14 +18,13 @@ export default async (request, context) => {
   });
 
   if (!response.ok) {
-    return new Response("Forbidden", { status: 403 });
+    return new Response("403 Forbidden: Invalid token", { status: 403 });
   }
 
   const user = await response.json();
 
-  // Sadece senin kullanıcı adınla erişim ver
   if (user.nickname !== "onurcangnc") {
-    return new Response("Access Denied", { status: 403 });
+    return new Response("403 Forbidden: Access denied", { status: 403 });
   }
 
   return context.next();
