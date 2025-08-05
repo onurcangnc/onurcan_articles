@@ -1,0 +1,32 @@
+{{ define "main" }}
+<div class="container">
+  <div class="row">
+    <section class="col-md-8">
+      <article class="blog-post">
+        <header>
+          <h1>{{ .Title }}</h1>
+          <p>
+            in 
+            {{ range $i, $tag := .Params.tags }}
+              {{ if $i }}, {{ end }}<a href="/tags/{{ $tag | urlize }}/">{{ $tag }}</a>
+            {{ end }}
+            <time>{{ .Date.Format "02-Jan-2006" }}</time>
+          </p>
+        </header>
+
+        {{ if .Params.thumbnail }}
+        <img src="{{ .Params.thumbnail }}" class="img-responsive" alt="{{ .Title }}">
+        {{ end }}
+
+        <div class="content">
+          {{ .Content }}
+        </div>
+      </article>
+    </section>
+
+    <aside class="col-md-4 col-sm-8 col-xs-8">
+      {{ partial "sidebar.html" . }}
+    </aside>
+  </div>
+</div>
+{{ end }}
