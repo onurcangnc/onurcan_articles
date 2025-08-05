@@ -1,7 +1,7 @@
 export default async (request) => {
   const config = {
-    domain: Deno.env.get("AUTH0_DOMAIN"),
-    clientId: Deno.env.get("AUTH0_CLIENT_ID")
+    domain: import.meta.env.AUTH0_DOMAIN,
+    clientId: import.meta.env.AUTH0_CLIENT_ID
   };
 
   return new Response(
