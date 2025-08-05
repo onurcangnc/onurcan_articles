@@ -317,22 +317,5 @@
       });
     </script>
 
-    <script>
-      if (window.location.hash.includes('confirmation_token') || window.location.hash.includes('invite_token')) {
-        window.location.href = '/admin/';
-      }
-    </script>
-
-    <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", (user) => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
-          }
-        });
-      }
-    </script>  
   </body>
 </html>
