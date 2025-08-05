@@ -1,11 +1,6 @@
 [build]
 publish = "public"
-command = """
-echo "export const AUTH0_CONFIG = {
-  domain: '${AUTH0_DOMAIN}',
-  clientId: '${AUTH0_CLIENT_ID}'
-};" > static/admin/config.js && hugo
-"""
+command = "hugo"
 
 [build.environment]
 HUGO_VERSION = "0.148.2"
@@ -24,3 +19,7 @@ HUGO_ENABLEGITINFO = "true"
 [[edge_functions]]
   path = "/admin/index.html"
   function = "admin-auth"
+
+[[edge_functions]]
+  path = "/admin/config.js"
+  function = "auth-config"
