@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="/assets/css/animate.css">
     <link rel="stylesheet" href="/assets/css/style.css">
+  
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
 
   <body>
@@ -314,5 +316,23 @@
         jQuery.scrollSpeed(100, 1000);
       });
     </script>
+
+    <script>
+      if (window.location.hash.includes('confirmation_token') || window.location.hash.includes('invite_token')) {
+        window.location.href = '/admin/';
+      }
+    </script>
+
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>  
   </body>
 </html>
