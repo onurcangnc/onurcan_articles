@@ -6,7 +6,6 @@
     <meta name="robots" content="noindex" />
     <title>Content Manager</title>
 
-    
     <script>
       
       if (window.location.hash.startsWith("#/invite_token=")) {
@@ -14,9 +13,34 @@
         window.location.replace(window.location.pathname + fixed);
       }
     </script>
+
+    <script type="module">
+      import { createAuth0Client } from "https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.esm.js";
+
+      const auth0 = await createAuth0Client({
+        domain: "dev-et2jvgh7d8b0m7sd.us.auth0.com",
+        clientId: "MF7MFjfh39hAu5D2n7XaN5nWN2HNE7bn",
+        authorizationParams: {
+          redirect_uri: window.location.origin + "/admin/"
+        }
+      });
+
+      
+      if (window.location.search.includes("code=") && window.location.search.includes("state=")) {
+        await auth0.handleRedirectCallback();
+
+        
+        const token = await auth0.getTokenSilently();
+
+        
+        document.cookie = `auth_token=${token}; path=/; Secure; SameSite=Lax`;
+
+        
+        window.history.replaceState({}, document.title, "/admin/");
+      }
+    </script>
   </head>
   <body>
-    
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </body>
 </html>
