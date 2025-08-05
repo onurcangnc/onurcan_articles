@@ -2,7 +2,7 @@
 title: HTB Access | Anonymous FTP, MDB Extraction & Nishang Reverse Shell
 date: 2025-07-15
 description: <script>alert(1)</script>
-thumbnail: /img/posts/htb-access.jpg
+thumbnail: /uploads/signature.png
 tags:
   - Hackthebox
   - Ftp
