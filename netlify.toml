@@ -20,6 +20,7 @@ HUGO_ENABLEGITINFO = "true"
   path = "/admin/*"
   function = "admin-auth"
 
+
 [[edge_functions]]
   path = "/auth-config.js"
   function = "auth-config"
