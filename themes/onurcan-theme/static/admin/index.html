@@ -19,8 +19,9 @@
 <button id="logout-btn" style="display:none;">Çıkış Yap</button>
 
 <script>
-  // Widget'ı başlat
+
   const netlifyIdentity = window.netlifyIdentity;
+
 
   netlifyIdentity.init();
 
@@ -28,35 +29,34 @@
   const loginBtn = document.getElementById('login-btn');
   const logoutBtn = document.getElementById('logout-btn');
 
-  // URL'de invite_token var mı kontrol et
+
   if (window.location.hash.includes('invite_token')) {
-    netlifyIdentity.open('signup'); // Invite token varsa otomatik signup modal aç
+    netlifyIdentity.open('signup'); 
   }
 
-  // Giriş butonu açar
+
   loginBtn.onclick = () => netlifyIdentity.open();
 
-  // Çıkış yapar
+
   logoutBtn.onclick = () => netlifyIdentity.logout();
 
-  // Oturum açıldığında
   netlifyIdentity.on('login', user => {
     loginStatus.textContent = `Giriş yapıldı: ${user.email}`;
     loginBtn.style.display = 'none';
     logoutBtn.style.display = 'inline-block';
     netlifyIdentity.close();
-    // İstersen CMS paneline yönlendir:
-    // window.location.href = "/admin/#/collections/blog";
+
+    window.location.href = "/admin/#/collections/blog";
   });
 
-  // Oturum kapandığında
+
   netlifyIdentity.on('logout', () => {
     loginStatus.textContent = 'Durum: Henüz giriş yapılmadı.';
     loginBtn.style.display = 'inline-block';
     logoutBtn.style.display = 'none';
   });
 
-  // Sayfa yüklendiğinde mevcut kullanıcı varsa durum göster
+
   netlifyIdentity.on('init', user => {
     if (user) {
       loginStatus.textContent = `Giriş yapıldı: ${user.email}`;
