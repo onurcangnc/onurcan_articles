@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <title>Login - Admin Panel</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <style>
     body {
@@ -60,9 +59,9 @@
 
   <script>
     const netlifyIdentity = window.netlifyIdentity;
-
     netlifyIdentity.init();
 
+    // Eğer URL'de invite_token veya confirmation_token varsa signup modal aç
     if (
       window.location.hash.includes('invite_token') ||
       window.location.hash.includes('confirmation_token')
