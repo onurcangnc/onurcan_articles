@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main  
+  branch: main
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
@@ -12,9 +12,9 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "string"}
-      - {label: "Thumbnail", name: "thumbnail", widget: "image"}
-      - {label: "Tags", name: "tags", widget: "list"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - { name: "title", label: "Title" }
+      - { name: "description", label: "Description" }
+      - { name: "date", label: "Date", widget: "datetime" }
+      - { name: "thumbnail", label: "Thumbnail", widget: "image" }
+      - { name: "tags", label: "Tags", widget: "list" }
+      - { name: "body", label: "Body", widget: "markdown" }
