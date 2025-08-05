@@ -3,66 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <title>Admin Panel</title>
-  <!-- Netlify Identity Widget Script -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <style>
-    body { font-family: Arial, sans-serif; margin: 50px; }
-    #login-status { margin-bottom: 20px; }
-    button { padding: 10px 15px; font-size: 16px; cursor: pointer; }
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #f1eeed;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   </style>
 </head>
 <body>
 
-<h1>Admin Panel</h1>
-<div id="login-status">Durum: Henüz giriş yapılmadı.</div>
-<button id="login-btn">Giriş Yap / Kayıt Ol</button>
-<button id="logout-btn" style="display:none;">Çıkış Yap</button>
-
 <script>
-
   const netlifyIdentity = window.netlifyIdentity;
-
 
   netlifyIdentity.init();
 
-  const loginStatus = document.getElementById('login-status');
-  const loginBtn = document.getElementById('login-btn');
-  const logoutBtn = document.getElementById('logout-btn');
-
-
-  if (window.location.hash.includes('invite_token')) {
-    netlifyIdentity.open('signup'); 
-  }
-
-
-  loginBtn.onclick = () => netlifyIdentity.open();
-
-
-  logoutBtn.onclick = () => netlifyIdentity.logout();
+  netlifyIdentity.open();
 
   netlifyIdentity.on('login', user => {
-    loginStatus.textContent = `Giriş yapıldı: ${user.email}`;
-    loginBtn.style.display = 'none';
-    logoutBtn.style.display = 'inline-block';
     netlifyIdentity.close();
-
     window.location.href = "/admin/#/collections/blog";
   });
 
-
   netlifyIdentity.on('logout', () => {
-    loginStatus.textContent = 'Durum: Henüz giriş yapılmadı.';
-    loginBtn.style.display = 'inline-block';
-    logoutBtn.style.display = 'none';
-  });
-
-
-  netlifyIdentity.on('init', user => {
-    if (user) {
-      loginStatus.textContent = `Giriş yapıldı: ${user.email}`;
-      loginBtn.style.display = 'none';
-      logoutBtn.style.display = 'inline-block';
-    }
+    window.location.reload();
   });
 </script>
 
