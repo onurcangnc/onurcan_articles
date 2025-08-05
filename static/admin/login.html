@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login | Onurcan Articles</title>
-  <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js" defer></script>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -44,35 +44,23 @@
   <div class="container">
     <h1>Admin Panel Girişi</h1>
     <p>Devam etmek için giriş yapın</p>
-    <button onclick="login()">Giriş Yap</button>
+    <button id="loginBtn">Giriş Yap</button>
   </div>
 
-<script>
-  const auth0 = await createAuth0Client({
-    domain: "dev-et2jvgh7d8b0m7sd.us.auth0.com",
-    clientId: "MF7MFjfh39hAu5D2n7XaN5nWN2HNE7bn",
-    authorizationParams: {
-      redirect_uri: window.location.origin + "/admin/"
-    }
-  });
+  <script type="module">
+    import { createAuth0Client } from "https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js";
 
-  async function login() {
-    await auth0.loginWithRedirect();
-  }
+    const auth0 = await createAuth0Client({
+      domain: "dev-et2jvgh7d8b0m7sd.us.auth0.com",
+      clientId: "MF7MFjfh39hAu5D2n7XaN5nWN2HNE7bn",
+      authorizationParams: {
+        redirect_uri: window.location.origin + "/admin/"
+      }
+    });
 
-  // Giriş sonrası geri dönüşü yakala ve cookie olarak kaydet
-  window.addEventListener("DOMContentLoaded", async () => {
-    if (window.location.search.includes("code=") && window.location.search.includes("state=")) {
-      await auth0.handleRedirectCallback();
-
-      const token = await auth0.getTokenSilently();
-      document.cookie = `auth_token=${token}; path=/; Secure; SameSite=Lax`;
-
-      // Admin paneli tekrar yükle
-      window.location.href = "/admin/";
-    }
-  });
-</script>
-
+    document.getElementById("loginBtn").addEventListener("click", async () => {
+      await auth0.loginWithRedirect();
+    });
+  </script>
 </body>
 </html>
