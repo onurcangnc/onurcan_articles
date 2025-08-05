@@ -1,5 +1,5 @@
 function getCookie(name, cookieHeader) {
-  const match = cookieHeader?.match(new RegExp('(^| )' + name + '=([^;]+)'));
+  const match = cookieHeader?.match(new RegExp("(^| )" + name + "=([^;]+)"));
   return match ? match[2] : null;
 }
 
@@ -11,10 +11,12 @@ export default async (request, context) => {
     return new Response("401 Unauthorized: Missing token", { status: 401 });
   }
 
-  const response = await fetch(`https://${process.env.AUTH0_DOMAIN}/userinfo`, {
+  const AUTH0_DOMAIN = import.meta.env.AUTH0_DOMAIN;
+
+  const response = await fetch(`https://${AUTH0_DOMAIN}/userinfo`, {
     headers: {
-      Authorization: `Bearer ${token}`
-    }
+      Authorization: `Bearer ${token}`,
+    },
   });
 
   if (!response.ok) {
