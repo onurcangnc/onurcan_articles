@@ -1,23 +1,10 @@
-[build]
-publish = "public"
-command = "hugo"
+[[plugins]]
+  package = "@netlify/plugin-decap-cms"
 
-[build.environment]
-HUGO_VERSION = "0.148.2"
-HUGO_ENABLEGITINFO = "true"
+[dev]
+  command = "hugo server"
 
 [[redirects]]
-  from = "/admin/"
+  from = "/admin/*"
   to = "/admin/index.html"
   status = 200
-
-[[redirects]]
-  from = "/login"
-  to = "/login.html"
-  status = 200
-
-[[edge_functions]]
-  path = "/admin/*"
-  function = "admin-auth"
-
-
