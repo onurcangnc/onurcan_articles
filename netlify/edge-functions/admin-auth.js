@@ -11,9 +11,9 @@ export default async (request, context) => {
     return new Response("401 Unauthorized: Missing token", { status: 401 });
   }
 
-  const AUTH0_DOMAIN = import.meta.env.AUTH0_DOMAIN;
+  const domain = import.meta.env.AUTH0_DOMAIN;
 
-  const response = await fetch(`https://${AUTH0_DOMAIN}/userinfo`, {
+  const response = await fetch(`https://${domain}/userinfo`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
