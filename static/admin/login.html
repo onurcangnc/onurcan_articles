@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login | Onurcan Articles</title>
-  <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js" defer></script>
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -47,20 +47,22 @@
     <button id="loginBtn">Giriş Yap</button>
   </div>
 
-  <script type="module">
-    import { createAuth0Client } from "https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js";
+  <script>
+    let auth0 = null;
 
-    const auth0 = await createAuth0Client({
-      domain: "dev-et2jvgh7d8b0m7sd.us.auth0.com",
-      clientId: "MF7MFjfh39hAu5D2n7XaN5nWN2HNE7bn",
-      authorizationParams: {
-        redirect_uri: window.location.origin + "/admin/"
-      }
-    });
+    window.onload = async () => {
+      auth0 = await createAuth0Client({
+        domain: "dev-et2jvgh7d8b0m7sd.us.auth0.com",
+        clientId: "MF7MFjfh39hAu5D2n7XaN5nWN2HNE7bn",
+        authorizationParams: {
+          redirect_uri: window.location.origin + "/admin/"
+        }
+      });
 
-    document.getElementById("loginBtn").addEventListener("click", async () => {
-      await auth0.loginWithRedirect();
-    });
+      document.getElementById("loginBtn").addEventListener("click", async () => {
+        await auth0.loginWithRedirect();
+      });
+    };
   </script>
 </body>
 </html>
