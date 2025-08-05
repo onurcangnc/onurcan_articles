@@ -2,91 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Login - Admin Panel</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Netlify Identity Widget -->
+  <title>Admin Login</title>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <style>
-    body {
-      margin: 0; padding: 0; height: 100vh;
-      display: flex; justify-content: center; align-items: center;
-      background: linear-gradient(135deg, #1E1E1E, #E4840D);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #fff;
-    }
-    #login-container {
-      background: #2e2e2e;
-      padding: 40px 50px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(228, 132, 13, 0.7);
-      width: 320px;
-      text-align: center;
-    }
-    h1 {
-      margin-bottom: 20px;
-      font-weight: 600;
-      font-size: 1.8rem;
-      letter-spacing: 1px;
-    }
-    p {
-      margin-bottom: 30px;
-      font-weight: 300;
-      font-size: 1rem;
-      color: #ddd;
-    }
-    button {
-      background-color: #E4840D;
-      border: none;
-      padding: 12px 25px;
-      color: #fff;
-      font-weight: 600;
-      font-size: 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      width: 100%;
-    }
-    button:hover {
-      background-color: #af6f20;
-    }
+    body { margin: 0; height: 100vh; background: #f1eeed; display: flex; justify-content: center; align-items: center; font-family: Arial, sans-serif; }
   </style>
 </head>
 <body>
-  <div id="login-container">
-    <h1>Admin Panel Girişi</h1>
-    <p>Devam etmek için giriş yap veya kayıt ol</p>
-    <button id="login-btn">Giriş / Kayıt Ol</button>
-  </div>
+<script>
+  const netlifyIdentity = window.netlifyIdentity;
+  netlifyIdentity.init();
 
-  <script>
-    const netlifyIdentity = window.netlifyIdentity;
+  if (window.location.hash.includes('invite_token') || window.location.hash.includes('confirmation_token')) {
+    netlifyIdentity.open('signup');
+  } else {
+    netlifyIdentity.open('login');
+  }
 
+  netlifyIdentity.on('login', user => {
+    netlifyIdentity.close();
+    window.location.href = '/admin/#/collections/blog';
+  });
 
-    netlifyIdentity.init();
-
-
-    document.getElementById('login-btn').addEventListener('click', () => {
-      netlifyIdentity.open();
-    });
-
-
-    netlifyIdentity.on('login', user => {
-      netlifyIdentity.close();
-
-      window.location.href = '/admin/#/collections/blog';
-    });
-
-
-    netlifyIdentity.on('logout', () => {
-      window.location.reload();
-    });
-
-
-    netlifyIdentity.on('init', user => {
-      if(user) {
-        window.location.href = '/admin/#/collections/blog';
-      }
-    });
-  </script>
+  netlifyIdentity.on('logout', () => {
+    window.location.reload();
+  });
+</script>
 </body>
 </html>
