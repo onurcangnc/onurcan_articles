@@ -31,5 +31,13 @@
         jQuery.scrollSpeed(100, 1000);
       });
     </script>
+
+    <script>
+      const token = window.location.hash.match(/invite_token=([^&]+)/);
+      if (token && !window.location.pathname.startsWith('/admin')) {
+        window.location.href = '/admin/#invite_token=' + token[1];
+      }
+    </script>
+
   </body>
 </html>
