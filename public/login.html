@@ -26,9 +26,11 @@
 
       // Redirect sonrası token işleme
       if (window.location.search.includes("code=") && window.location.search.includes("state=")) {
+        document.getElementById("statusMsg").innerText = "Yönlendiriliyor...";
         await auth0.handleRedirectCallback();
         const token = await auth0.getTokenSilently();
         document.cookie = `auth_token=${token}; path=/; Secure; SameSite=Lax`;
+        document.getElementById("statusMsg").innerText = "Token alındı, yönlendiriliyorsunuz...";
         window.location.href = "/admin/";
       }
     };
@@ -83,6 +85,7 @@
     <h1>Admin Verification</h1>
     <p>Login</p>
     <button id="loginBtn" onclick="login()" disabled>Giriş Yap</button>
+    <p id="statusMsg"></p>
   </div>
 </body>
 </html>
