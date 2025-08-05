@@ -21,6 +21,10 @@
         }
       });
 
+      // Butonu aktif et
+      document.getElementById("loginBtn").disabled = false;
+
+      // Redirect sonrası token işleme
       if (window.location.search.includes("code=") && window.location.search.includes("state=")) {
         await auth0.handleRedirectCallback();
         const token = await auth0.getTokenSilently();
@@ -64,10 +68,21 @@
       color: #fff;
     }
 
-    button:hover {
+    button:disabled {
+      background: #888;
+      cursor: not-allowed;
+    }
+
+    button:hover:enabled {
       background: #0288d1;
     }
   </style>
 </head>
 <body>
-  <div class="container
+  <div class="container">
+    <h1>Admin Verification</h1>
+    <p>Login</p>
+    <button id="loginBtn" onclick="login()" disabled>Giriş Yap</button>
+  </div>
+</body>
+</html>
