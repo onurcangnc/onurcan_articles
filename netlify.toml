@@ -10,3 +10,9 @@ HUGO_ENABLEGITINFO = "true"
   from = "/admin/*"
   to = "/admin/index.html"
   status = 200
+
+[[redirects]]
+  from = "/#*"
+  to = "/admin/index.html"
+  status = 200
+  force = true
