@@ -5,6 +5,28 @@
     <title>Admin Panel</title>
   </head>
   <body>
+    <!-- Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+    <!-- Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      const token = window.location.hash.match(/invite_token=([^&]+)/);
+      if (token) {
+        window.netlifyIdentity.on('init', () => {
+          window.netlifyIdentity.acceptInvite({ invite_token: token[1] })
+            .then(user => {
+              console.log("✅ Davet kabul edildi:", user);
+              window.location.href = "/admin/";
+            })
+            .catch(err => {
+              console.error("❌ Davet kabul edilemedi:", err);
+            });
+        });
+        window.netlifyIdentity.init();
+      } else {
+        window.netlifyIdentity.init();
+      }
+    </script>
   </body>
 </html>
