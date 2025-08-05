@@ -12,21 +12,27 @@
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
       const token = window.location.hash.match(/invite_token=([^&]+)/);
-      if (token) {
-        window.netlifyIdentity.on('init', () => {
-          window.netlifyIdentity.acceptInvite({ invite_token: token[1] })
-            .then(user => {
-              console.log("✅ Davet kabul edildi:", user);
-              window.location.href = "/admin/";
-            })
-            .catch(err => {
-              console.error("❌ Davet kabul edilemedi:", err);
-            });
-        });
-        window.netlifyIdentity.init();
-      } else {
-        window.netlifyIdentity.init();
-      }
+
+      // Init Netlify Identity
+      window.netlifyIdentity.on('init', user => {
+        if (!user && token) {
+          console.log("🔐 Invite token ile gelen kullanıcı, login ekranı açılıyor.");
+          window.netlifyIdentity.open(); // Modalı aç
+        }
+      });
+
+      // Kullanıcı login olduktan sonra yönlendir
+      window.netlifyIdentity.on('login', user => {
+        console.log("✅ Giriş başarılı:", user);
+        window.location.href = "/admin/";
+      });
+
+      // Hataları göster
+      window.netlifyIdentity.on('error', err => {
+        console.error("❌ Netlify Identity hatası:", err);
+      });
+
+      window.netlifyIdentity.init();
     </script>
   </body>
 </html>
