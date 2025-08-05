@@ -7,7 +7,7 @@
     <title>Content Manager</title>
 
     <script>
-      
+      // Netlify invite link fix
       if (window.location.hash.startsWith("#/invite_token=")) {
         const fixed = window.location.hash.replace("#/invite_token=", "#invite_token=");
         window.location.replace(window.location.pathname + fixed);
@@ -16,26 +16,20 @@
 
     <script type="module">
       import { createAuth0Client } from "https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.esm.js";
+      import { AUTH0_CONFIG } from "./config.js";
 
       const auth0 = await createAuth0Client({
-        domain: "dev-et2jvgh7d8b0m7sd.us.auth0.com",
-        clientId: "MF7MFjfh39hAu5D2n7XaN5nWN2HNE7bn",
+        domain: AUTH0_CONFIG.domain,
+        clientId: AUTH0_CONFIG.clientId,
         authorizationParams: {
           redirect_uri: window.location.origin + "/admin/"
         }
       });
 
-      
       if (window.location.search.includes("code=") && window.location.search.includes("state=")) {
         await auth0.handleRedirectCallback();
-
-        
         const token = await auth0.getTokenSilently();
-
-        
         document.cookie = `auth_token=${token}; path=/; Secure; SameSite=Lax`;
-
-        
         window.history.replaceState({}, document.title, "/admin/");
       }
     </script>
