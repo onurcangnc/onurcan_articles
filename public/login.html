@@ -4,6 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login | Onurcan Articles</title>
+  <script type="module">
+    import { createAuth0Client } from "https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.esm.js";
+
+    let auth0;
+
+    window.onload = async () => {
+      auth0 = await createAuth0Client({
+        domain: "dev-et2jvgh7d8b0m7sd.us.auth0.com",
+        clientId: "MF7MFjfh39hAu5D2n7XaN5nWN2HNE7bn",
+        authorizationParams: {
+          redirect_uri: window.location.origin + "/admin/"
+        }
+      });
+    };
+
+    window.login = async () => {
+      await auth0.loginWithRedirect({
+        authorizationParams: {
+          redirect_uri: window.location.origin + "/admin/",
+          prompt: "login"  // Zorunlu olarak login ekranını göster
+        }
+      });
+    };
+  </script>
+
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -43,27 +68,7 @@
   <div class="container">
     <h1>Admin Panel Girişi</h1>
     <p>Devam etmek için giriş yapın</p>
-    <button id="login-btn">Giriş Yap</button>
+    <button onclick="login()">Giriş Yap</button>
   </div>
-
-  <script type="module">
-    import { createAuth0Client } from "https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.esm.js";
-
-    let auth0;
-
-    window.onload = async () => {
-      auth0 = await createAuth0Client({
-        domain: "dev-et2jvgh7d8b0m7sd.us.auth0.com",
-        clientId: "MF7MFjfh39hAu5D2n7XaN5nWN2HNE7bn",
-        authorizationParams: {
-          redirect_uri: window.location.origin + "/admin/"
-        }
-      });
-
-      document.getElementById("login-btn").onclick = () => {
-        auth0.loginWithRedirect();
-      };
-    };
-  </script>
 </body>
 </html>
