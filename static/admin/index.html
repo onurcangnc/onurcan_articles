@@ -1,19 +1,27 @@
+<!-- /static/admin/index.html -->
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8" />
   <title>Admin</title>
-
-  <!-- Decap -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-
-  <!-- Kendi backend’imiz -->
-  <script src="/admin/custom-backend.js"></script>
 </head>
+
 <body>
-  <!-- CMS’i manuel başlat -->
-  <script>
-    CMS.init({ config: "/admin/config.yml" });
+  <!-- 1) CMS dosyası, defer sayesinde DOM yüklendikten sonra çalışır -->
+  <script defer src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+  <!-- 2) Kendi backend’in, yine defer -->
+  <script defer src="/admin/custom-backend.js"></script>
+
+  <!-- 3) CMS.init – DOM ve CMS kesin hazır olduktan sonra -->
+  <script defer>
+    window.addEventListener("DOMContentLoaded", () => {
+      if (window.CMS) {
+        CMS.init({ config: "/admin/config.yml" });
+      } else {
+        console.error("CMS not loaded");
+      }
+    });
   </script>
 </body>
 </html>
