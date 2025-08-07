@@ -1,6 +1,8 @@
 backend:
-  name: git-gateway
-  branch: main
+  name: custom
+  login_url: /.netlify/functions/login
+  auth_url: /.netlify/functions/auth
+  entries_url: /.netlify/functions/entries
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
