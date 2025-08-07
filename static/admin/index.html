@@ -3,9 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <title>Admin Panel</title>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </head>
   <body>
     <script>
@@ -18,14 +17,16 @@
       window.netlifyIdentity.on("login", () => window.location.reload());
       window.netlifyIdentity.init();
 
-      // Yalnızca CMS yüklenince custom backend'i yükle
       window.addEventListener("load", () => {
-        if (!window.CMS) return console.error("❌ CMS yüklenemedi");
+        if (!window.CMS) {
+          return console.error("❌ CMS yüklenemedi");
+        }
 
         const script = document.createElement("script");
         script.src = "/admin/custom-backend.js";
         script.onload = () => {
-          console.log("✅ custom-backend.js yüklendi ve çalıştı");
+          console.log("✅ custom-backend.js yüklendi");
+          // CMS.init burada değil, custom-backend.js içinde çağrılmalı
         };
         document.body.appendChild(script);
       });
