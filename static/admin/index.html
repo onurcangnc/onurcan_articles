@@ -7,7 +7,26 @@
     <title>Content Manager</title>
   </head>
   <body>
-    <!-- Include the script that builds the page and powers Decap CMS -->
+    <!-- Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      
+      document.addEventListener("DOMContentLoaded", function () {
+        if (
+          window.location.hash.startsWith("#invite_token=") &&
+          window.netlifyIdentity
+        ) {
+          
+          window.netlifyIdentity.init();
+          
+          setTimeout(function () {
+            window.netlifyIdentity.open();
+          }, 500);
+        }
+      });
+    </script>
+
+    <!-- Decap CMS Script -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </body>
 </html>
