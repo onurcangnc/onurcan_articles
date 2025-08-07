@@ -4,19 +4,39 @@
     <meta charset="utf-8" />
     <title>Admin</title>
 
-    <!-- Decap CMS + Git-Gateway backend -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <!-- Manuel başlatacağımız için auto-init kapalı -->
+    <script>window.CMS_MANUAL_INIT = true;</script>
 
     <!-- Netlify Identity (login modal) -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-    <!-- Kimlik doğrulama – otomatik -->
-    <script>
-      netlifyIdentity.on("init", user => {
-        if (!user) netlifyIdentity.open("login");
+    <!-- Decap CMS -->
+    <script defer src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+    <script defer>
+      /* ---------- Netlify Identity akışı ---------- */
+      function startCMS() {
+        if (window.__cmsStarted) return;
+        window.__cmsStarted = true;
+        CMS.init();                                 // /admin/config.yml
+      }
+
+      netlifyIdentity.on('init', (user) => {
+        if (user) startCMS();
+        else      netlifyIdentity.open('login');
       });
-      netlifyIdentity.on("login", () => document.location.reload());
-      netlifyIdentity.init();          // gerekli
+
+      netlifyIdentity.on('login', () => {
+        startCMS();
+        netlifyIdentity.close();
+      });
+
+      netlifyIdentity.init();
+
+      /* Yüklü kullanıcı varsa sayfa yüklenince de başlat */
+      window.addEventListener('DOMContentLoaded', () => {
+        if (netlifyIdentity.currentUser()) startCMS();
+      });
     </script>
   </head>
   <body></body>
