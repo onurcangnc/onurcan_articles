@@ -8,40 +8,25 @@
   </head>
   <body>
     <script>
-      // Login ekranı
       window.netlifyIdentity.on("init", (user) => {
         if (!user) {
           window.netlifyIdentity.open("login");
         }
       });
 
-      window.netlifyIdentity.on("login", (user) => {
-        console.log("✅ Giriş başarılı:", user);
-        window.location.reload();
-      });
-
+      window.netlifyIdentity.on("login", () => window.location.reload());
       window.netlifyIdentity.init();
 
-      // CMS yüklendikten sonra backend'i ekle
+      // Yalnızca CMS yüklenince custom backend'i yükle
       window.addEventListener("load", () => {
-        const waitForCMSAndInit = () => {
-          if (window.CMS) {
-            console.log("✅ CMS bulundu");
+        if (!window.CMS) return console.error("❌ CMS yüklenemedi");
 
-            const script = document.createElement("script");
-            script.src = "/admin/custom-backend.js";
-            script.onload = () => {
-              console.log("✅ custom-backend.js yüklendi");
-              CMS.init({ config: "/admin/config.yml" });
-            };
-            document.body.appendChild(script);
-          } else {
-            console.log("⏳ Bekleniyor...");
-            setTimeout(waitForCMSAndInit, 200);
-          }
+        const script = document.createElement("script");
+        script.src = "/admin/custom-backend.js";
+        script.onload = () => {
+          console.log("✅ custom-backend.js yüklendi ve çalıştı");
         };
-
-        waitForCMSAndInit();
+        document.body.appendChild(script);
       });
     </script>
   </body>
