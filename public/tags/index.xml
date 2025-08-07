@@ -1,39 +1,60 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on </title>
-    <link>//localhost:1313/tags/</link>
-    <description>Recent content in Tags on </description>
+    <title>Tags on Onurcan Genç | Blog</title>
+    <link>http://localhost:1313/tags/</link>
+    <description>Recent content in Tags on Onurcan Genç | Blog</description>
     <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Tue, 15 Jul 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Wed, 06 Aug 2025 13:47:05 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>&#34;&gt;&lt;Html Ontouchstart=alert(1)&gt;</title>
+      <link>http://localhost:1313/tags/html-ontouchstartalert1/</link>
+      <pubDate>Wed, 06 Aug 2025 16:28:00 +0300</pubDate>
+      <guid>http://localhost:1313/tags/html-ontouchstartalert1/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>&#34;&gt;&lt;Img Src=x Onerror=alert(document.cookie)&gt;</title>
+      <link>http://localhost:1313/tags/img-srcx-onerroralertdocument.cookie/</link>
+      <pubDate>Wed, 06 Aug 2025 15:34:00 +0300</pubDate>
+      <guid>http://localhost:1313/tags/img-srcx-onerroralertdocument.cookie/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>&lt;Script&gt;alert(1)&lt;/Script&gt;</title>
+      <link>http://localhost:1313/tags/scriptalert1/script/</link>
+      <pubDate>Wed, 06 Aug 2025 02:58:00 +0300</pubDate>
+      <guid>http://localhost:1313/tags/scriptalert1/script/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Ftp</title>
-      <link>//localhost:1313/tags/ftp/</link>
+      <link>http://localhost:1313/tags/ftp/</link>
       <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/tags/ftp/</guid>
+      <guid>http://localhost:1313/tags/ftp/</guid>
       <description></description>
     </item>
     <item>
       <title>Hackthebox</title>
-      <link>//localhost:1313/tags/hackthebox/</link>
+      <link>http://localhost:1313/tags/hackthebox/</link>
       <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/tags/hackthebox/</guid>
+      <guid>http://localhost:1313/tags/hackthebox/</guid>
       <description></description>
     </item>
     <item>
       <title>Mdb</title>
-      <link>//localhost:1313/tags/mdb/</link>
+      <link>http://localhost:1313/tags/mdb/</link>
       <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/tags/mdb/</guid>
+      <guid>http://localhost:1313/tags/mdb/</guid>
       <description></description>
     </item>
     <item>
       <title>Nishang</title>
-      <link>//localhost:1313/tags/nishang/</link>
+      <link>http://localhost:1313/tags/nishang/</link>
       <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/tags/nishang/</guid>
+      <guid>http://localhost:1313/tags/nishang/</guid>
       <description></description>
     </item>
   </channel>

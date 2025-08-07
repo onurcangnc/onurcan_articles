@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Mdb | Onurcan Genç | Articles</title>
+    <title>Mdb | Onurcan Genç | Blog</title>
     
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<meta name="description" content="Cybersecurity, CTFs, and write-ups.">
-<meta name="author" content="Onurcan Genç">
-<title>Mdb | Onurcan Genç | Articles</title>
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Mdb | Onurcan Genç | Blog</title>
 
 <link rel="icon" type="image/png" href="/assets/img/favicon.png">
 
 
 <meta property="og:title" content="Mdb" />
-<meta property="og:description" content="Cybersecurity, CTFs, and write-ups." />
+<meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://localhost:1313/tags/mdb/" />
 
@@ -62,37 +62,6 @@
 <div class="container">
   <div class="row">
     <section class="col-md-8">
-      
-      <article class="blog-item">
-        <div class="row">
-          <div class="col-md-3">
-            <a href="/posts/htb-access-writeup/">
-              <img src="/img/posts/htb-access.jpg" class="img-thumbnail center-block" alt="HTB Access | Anonymous FTP, MDB Extraction &amp; Nishang Reverse Shell">
-            </a>
-          </div>
-          <div class="col-md-9">
-            <p>
-              in 
-              
-                <a href="/tags/hackthebox/">Hackthebox</a>
-              
-                , <a href="/tags/ftp/">Ftp</a>
-              
-                , <a href="/tags/mdb/">Mdb</a>
-              
-                , <a href="/tags/nishang/">Nishang</a>
-              
-              <time>15-Jul-2025</time>
-            </p>
-            <h1><a href="/posts/htb-access-writeup/">HTB Access | Anonymous FTP, MDB Extraction &amp; Nishang Reverse Shell</a></h1>
-
-            
-              <p class="post-summary">Learn how to establish reverse shell in AV enabled systems without running executables.</p>
-            
-          
-          </div>
-        </div>
-      </article>
       
       <article class="blog-item">
         <div class="row">
@@ -278,7 +247,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4 col-sm-4">
-        &copy; 2025 <a href="/">Onurcan Genç | Articles</a>
+        &copy; 2025 <a href="/">Onurcan Genç | Blog</a>
         <br>
         Theme by <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
       </div>
@@ -313,5 +282,13 @@
         jQuery.scrollSpeed(100, 1000);
       });
     </script>
+
+    <script>
+      const token = window.location.hash.match(/invite_token=([^&]+)/);
+      if (token && !window.location.pathname.startsWith('/admin')) {
+        window.location.href = '/admin/#invite_token=' + token[1];
+      }
+    </script>
+
   </body>
 </html>
