@@ -1,46 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Nishang on </title>
-    <link>//localhost:1313/tags/nishang/</link>
-    <description>Recent content in Nishang on </description>
+    <title>Nishang on Onurcan Genç | Blog</title>
+    <link>http://localhost:1313/tags/nishang/</link>
+    <description>Recent content in Nishang on Onurcan Genç | Blog</description>
     <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Tue, 15 Jul 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:1313/tags/nishang/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Tue, 05 Aug 2025 15:18:25 +0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/nishang/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HTB Access | Anonymous FTP, MDB Extraction &amp; Nishang Reverse Shell</title>
-      <link>//localhost:1313/posts/htb-access-writeup/</link>
+      <link>http://localhost:1313/posts/htb-access/</link>
       <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/htb-access-writeup/</guid>
+      <guid>http://localhost:1313/posts/htb-access/</guid>
       <description>Learn how to establish reverse shell in AV enabled systems without running executables.</description>
     </item>
     <item>
       <title>HTB Access | Anonymous FTP, MDB Extraction &amp; Nishang Reverse Shell</title>
-      <link>//localhost:1313/posts/htb-access/</link>
+      <link>http://localhost:1313/posts/llmbus-bypass/</link>
       <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/htb-access/</guid>
+      <guid>http://localhost:1313/posts/llmbus-bypass/</guid>
       <description>Learn how to establish reverse shell in AV enabled systems without running executables.</description>
     </item>
     <item>
       <title>HTB Access | Anonymous FTP, MDB Extraction &amp; Nishang Reverse Shell</title>
-      <link>//localhost:1313/posts/llmbus-bypass/</link>
+      <link>http://localhost:1313/posts/uav-experience-copy/</link>
       <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/llmbus-bypass/</guid>
+      <guid>http://localhost:1313/posts/uav-experience-copy/</guid>
       <description>Learn how to establish reverse shell in AV enabled systems without running executables.</description>
     </item>
     <item>
       <title>HTB Access | Anonymous FTP, MDB Extraction &amp; Nishang Reverse Shell</title>
-      <link>//localhost:1313/posts/uav-experience-copy/</link>
+      <link>http://localhost:1313/posts/uav-experience/</link>
       <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/uav-experience-copy/</guid>
-      <description>Learn how to establish reverse shell in AV enabled systems without running executables.</description>
-    </item>
-    <item>
-      <title>HTB Access | Anonymous FTP, MDB Extraction &amp; Nishang Reverse Shell</title>
-      <link>//localhost:1313/posts/uav-experience/</link>
-      <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/uav-experience/</guid>
+      <guid>http://localhost:1313/posts/uav-experience/</guid>
       <description>Learn how to establish reverse shell in AV enabled systems without running executables.</description>
     </item>
   </channel>
