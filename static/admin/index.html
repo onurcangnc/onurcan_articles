@@ -9,52 +9,27 @@
 
     <!-- Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <!-- Custom Backend -->
+    <script src="/admin/custom-backend.js"></script>
   </head>
   <body>
-    <script type="module">
-      import GoTrue from "https://cdn.jsdelivr.net/npm/gotrue-js@0.11.0/+esm";
-
-      const auth = new GoTrue({
-        APIUrl: "https://blog.onurcangenc.com.tr/.netlify/identity",
-        setCookie: true,
+    <script>
+      window.netlifyIdentity.on("init", (user) => {
+        if (!user) {
+          window.netlifyIdentity.open("login");
+        }
       });
 
-      const tokenMatch =
-        window.location.hash.match(/invite_token=([^&]+)/) ||
-        window.location.hash.match(/confirmation_token=([^&]+)/);
+      window.netlifyIdentity.on("login", (user) => {
+        console.log("✅ Giriş başarılı:", user);
+        window.location.reload();
+      });
 
-      if (tokenMatch) {
-        const token = tokenMatch[1];
+      window.netlifyIdentity.init();
 
-        auth
-          .confirm(token, true)
-          .then((user) => {
-            console.log("✅ Kullanıcı doğrulandı:", user);
-            window.location.href = "/admin/";
-          })
-          .catch((err) => {
-            console.error("❌ Doğrulama hatası:", err);
-          });
-      } else {
-        window.netlifyIdentity.on("init", (user) => {
-          if (!user) {
-            window.netlifyIdentity.open("login");
-          }
-        });
-
-        window.netlifyIdentity.on("login", (user) => {
-          console.log("✅ Giriş başarılı:", user);
-          window.location.href = "/admin/";
-        });
-
-        window.netlifyIdentity.init();
-      }
-    </script>
-
-    <!-- Custom Backend (CMS yüklendikten sonra) -->
-    <script>
-      // CMS yüklendikten sonra custom backend'i kaydet
-      window.addEventListener("DOMContentLoaded", () => {
+      // Wait until CMS and custom backend are ready
+      window.addEventListener("load", () => {
         if (window.CMS) {
           CMS.init({ config: "/admin/config.yml" });
         } else {
@@ -62,8 +37,5 @@
         }
       });
     </script>
-
-    <!-- Register custom backend -->
-    <script src="/admin/custom-backend.js"></script>
   </body>
 </html>

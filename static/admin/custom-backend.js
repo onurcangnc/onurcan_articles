@@ -11,6 +11,7 @@ if (typeof window.CMS !== "undefined") {
         },
       ]),
   });
+  console.log("✅ Custom backend başarıyla register edildi.");
 } else {
   console.error("❌ CMS henüz tanımlı değil. Backend register edilemedi.");
 }
