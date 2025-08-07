@@ -1,0 +1,10 @@
+# Local Netlify folder
+# Build ve modüller
+node_modules/
+public/
+.env
+.netlify
+
+# IDE dosyaları
+.vscode/
+.DS_Store
