@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>Admin Panel</title>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script src="https://unpkg.com/decap-cms@^3.8.3/dist/decap-cms.js"></script>
   </head>
   <body>
     <script>
@@ -13,23 +13,21 @@
           window.netlifyIdentity.open("login");
         }
       });
-
       window.netlifyIdentity.on("login", () => window.location.reload());
       window.netlifyIdentity.init();
 
-      window.addEventListener("load", () => {
-        if (!window.CMS) {
-          return console.error("❌ CMS yüklenemedi");
-        }
+      // CMS yüklendiğinde backend scriptini ekle
+      const waitForCMS = setInterval(() => {
+        if (window.CMS && typeof window.CMS.registerBackend === "function") {
+          clearInterval(waitForCMS);
 
-        const script = document.createElement("script");
-        script.src = "/admin/custom-backend.js";
-        script.onload = () => {
-          console.log("✅ custom-backend.js yüklendi");
-          // CMS.init burada değil, custom-backend.js içinde çağrılmalı
-        };
-        document.body.appendChild(script);
-      });
+          const script = document.createElement("script");
+          script.src = "/admin/custom-backend.js";
+          document.body.appendChild(script);
+        } else {
+          console.log("⏳ CMS henüz hazır değil...");
+        }
+      }, 100);
     </script>
   </body>
 </html>

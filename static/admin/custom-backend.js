@@ -11,12 +11,12 @@
       deleteEntry: async () => {},
     });
 
-    console.log("✅ Custom backend başarıyla register edildi.");
+    console.log("✅ Custom backend başarıyla eklendi");
 
-    // 🔥 Backend başarıyla eklendikten sonra CMS başlat!
     window.CMS.init({ config: "/admin/config.yml" });
+
   } else {
-    console.log("⏳ CMS bekleniyor...");
+    console.log("⏳ custom-backend.js: CMS hazır değil");
     setTimeout(waitForCMS, 100);
   }
 })();
