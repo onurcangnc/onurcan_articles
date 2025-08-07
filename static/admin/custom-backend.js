@@ -1,21 +1,18 @@
-function waitForCMS(attempts = 0) {
-  if (window.CMS) {
-    console.log("✅ CMS bulundu, backend register ediliyor...");
+(function waitForCMS() {
+  if (window.CMS && typeof window.CMS.registerBackend === "function") {
     window.CMS.registerBackend("custom", {
+      // Zorunlu metotlar (dummy olarak)
       init: () => Promise.resolve(),
-      authComponent: null,
-      entriesByFolder: () => Promise.resolve([]),
-      getEntry: () => Promise.resolve({}),
-      // Diğer gerekli metotları burada tanımlayabilirsin
+      auth: async () => ({ token: "dummy" }),
+      entries: async () => [],
+      getEntry: async () => null,
+      persistEntry: async () => {},
+      deleteEntry: async () => {},
     });
-  } else {
-    if (attempts > 20) {
-      console.error("❌ CMS hala tanımlı değil. Kayıt başarısız.");
-      return;
-    }
-    console.warn("⏳ CMS yüklenmedi, tekrar denenecek...");
-    setTimeout(() => waitForCMS(attempts + 1), 300);
-  }
-}
 
-waitForCMS();
+    window.__customBackendRegistered = true;
+    console.log("✅ Custom backend başarıyla register edildi.");
+  } else {
+    setTimeout(waitForCMS, 100);
+  }
+})();
