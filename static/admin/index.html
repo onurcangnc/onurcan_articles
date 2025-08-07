@@ -1,33 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Admin Panel</title>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <script src="https://unpkg.com/decap-cms@^3.8.3/dist/decap-cms.js"></script>
-  </head>
-  <body>
-    <script>
-      window.netlifyIdentity.on("init", (user) => {
-        if (!user) {
-          window.netlifyIdentity.open("login");
-        }
-      });
-      window.netlifyIdentity.on("login", () => window.location.reload());
-      window.netlifyIdentity.init();
+<head>
+  <meta charset="utf-8" />
+  <title>Admin</title>
 
-      // CMS yüklendiğinde backend scriptini ekle
-      const waitForCMS = setInterval(() => {
-        if (window.CMS && typeof window.CMS.registerBackend === "function") {
-          clearInterval(waitForCMS);
+  <!-- Decap -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
-          const script = document.createElement("script");
-          script.src = "/admin/custom-backend.js";
-          document.body.appendChild(script);
-        } else {
-          console.log("⏳ CMS henüz hazır değil...");
-        }
-      }, 100);
-    </script>
-  </body>
+  <!-- Kendi backend’imiz -->
+  <script src="/admin/custom-backend.js"></script>
+</head>
+<body>
+  <!-- CMS’i manuel başlat -->
+  <script>
+    CMS.init({ config: "/admin/config.yml" });
+  </script>
+</body>
 </html>
