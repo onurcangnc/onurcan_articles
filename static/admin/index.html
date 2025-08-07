@@ -3,14 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <title>Admin Panel</title>
-  </head>
-  <body>
+    
     <!-- Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-
+    
+    <!-- Custom Backend -->
+    <script src="/admin/custom-backend.js"></script>
+    
     <!-- Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
+  </head>
+  <body>
     <script type="module">
       import GoTrue from "https://cdn.jsdelivr.net/npm/gotrue-js@0.11.0/+esm";
 
@@ -36,7 +39,6 @@
             console.error("❌ Doğrulama hatası:", err);
           });
       } else {
-        // normal login modal'ı init et
         window.netlifyIdentity.on("init", (user) => {
           if (!user) {
             window.netlifyIdentity.open("login");
@@ -50,6 +52,11 @@
 
         window.netlifyIdentity.init();
       }
+    </script>
+
+    <script>
+      // Decap CMS'i yükle
+      CMS.init({ config: "/admin/config.yml" });
     </script>
   </body>
 </html>
