@@ -3,38 +3,41 @@
   <head>
     <meta charset="utf-8" />
     <title>Admin Panel</title>
-
-    <!-- Decap CMS -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-
-    <!-- Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
-    <!-- Custom Backend -->
-    <script src="/admin/custom-backend.js"></script>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </head>
   <body>
     <script>
+      // Login ile giriş kontrolü
       window.netlifyIdentity.on("init", (user) => {
         if (!user) {
           window.netlifyIdentity.open("login");
         }
       });
 
-      window.netlifyIdentity.on("login", (user) => {
-        console.log("✅ Giriş başarılı:", user);
+      window.netlifyIdentity.on("login", () => {
+        console.log("✅ Giriş başarılı");
         window.location.reload();
       });
 
       window.netlifyIdentity.init();
 
-      // Wait until CMS and custom backend are ready
+      // CMS yüklendikten sonra custom backend'i register et ve init yap
       window.addEventListener("load", () => {
-        if (window.CMS) {
-          CMS.init({ config: "/admin/config.yml" });
-        } else {
-          console.error("❌ CMS global nesnesi bulunamadı.");
-        }
+        const registerBackend = () => {
+          if (window.CMS && typeof window.CMS.registerBackend === "function") {
+            console.log("✅ CMS bulundu, custom backend register ediliyor...");
+            window.CMS.registerBackend("custom", {
+              init: () => Promise.resolve(),
+              // Diğer gerekli fonksiyonları burada tanımla
+            });
+            window.CMS.init({ config: "/admin/config.yml" });
+          } else {
+            console.warn("❌ CMS henüz hazır değil, tekrar denenecek...");
+            setTimeout(registerBackend, 100);
+          }
+        };
+        registerBackend();
       });
     </script>
   </body>
