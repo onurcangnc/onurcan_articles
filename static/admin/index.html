@@ -3,13 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <title>Admin Panel</title>
-    
+
     <!-- Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-    
-    <!-- Custom Backend -->
-    <script src="/admin/custom-backend.js"></script>
-    
+
     <!-- Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
@@ -54,9 +51,19 @@
       }
     </script>
 
+    <!-- Custom Backend (CMS yüklendikten sonra) -->
     <script>
-      // Decap CMS'i yükle
-      CMS.init({ config: "/admin/config.yml" });
+      // CMS yüklendikten sonra custom backend'i kaydet
+      window.addEventListener("DOMContentLoaded", () => {
+        if (window.CMS) {
+          CMS.init({ config: "/admin/config.yml" });
+        } else {
+          console.error("❌ CMS global nesnesi bulunamadı.");
+        }
+      });
     </script>
+
+    <!-- Register custom backend -->
+    <script src="/admin/custom-backend.js"></script>
   </body>
 </html>
