@@ -1,5 +1,5 @@
 backend:
-  name: custom
+  name: custom-backend
   login_url: /.netlify/functions/login
   auth_url: /.netlify/functions/auth
   entries_url: /.netlify/functions/entries
