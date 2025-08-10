@@ -1,27 +1,104 @@
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 col-sm-4">
-        &copy; {{ now.Format "2006" }} <a href="/">{{ .Site.Title }}</a>
-        <br>
-        Theme by <a href="https://onurcangenc.com.tr/" target="_blank">Onurcan Genc</a>
-      </div>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sticky Footer Örnek</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-      <div class="col-md-4 col-sm-4">
-        <ul class="social-share text-center">
-          <li><a href="https://x.com/onurcangenc1999"><i class="fa fa-twitter"></i></a></li>
-          <li><a href="mailto:onurcangencbilkent@gmail.com"><i class="fa fa-google-plus"></i></a></li>
-          <li><a href="https://github.com/onurcangnc"><i class="fa fa-github"></i></a></li>
-          <li><a href="https://www.linkedin.com/in/onurcangnc"><i class="fa fa-linkedin"></i></a></li>
-          <li><a href="https://www.instagram.com/onurcan.gnc"><i class="fa fa-instagram"></i></a></li>
-        </ul>
-      </div>
+  <style>
+    html, body {
+      height: 100%;
+    }
 
-      <div class="col-md-4 col-sm-4">
-        <ul class="footer-nav">
-          <li><a href="https://portfolio.onurcangenc.com.tr/">About</a></li>
-        </ul>
+    body {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+    }
+
+    main {
+      flex: 1 0 auto; /* İçeriği esnetir */
+    }
+
+    footer {
+      flex-shrink: 0; /* Footer küçülmez */
+      background-color: #222;
+      color: #fff;
+      padding: 20px 0;
+    }
+
+    footer a {
+      color: #fff;
+    }
+
+    footer a:hover {
+      color: #ddd;
+      text-decoration: none;
+    }
+
+    .social-share {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .social-share li {
+      display: inline-block;
+      margin: 0 5px;
+    }
+
+    .social-share i {
+      font-size: 18px;
+    }
+
+    .footer-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-nav li {
+      display: inline-block;
+      margin: 0 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+    <h1>Sayfa İçeriği</h1>
+    <p>Buraya sayfanın içeriği gelecek.</p>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-4">
+          &copy; {{ now.Format "2006" }} <a href="/">{{ .Site.Title }}</a>
+          <br>
+          Theme by <a href="https://onurcangenc.com.tr/" target="_blank">Onurcan Genc</a>
+        </div>
+
+        <div class="col-md-4 col-sm-4">
+          <ul class="social-share text-center">
+            <li><a href="https://x.com/onurcangenc1999"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="mailto:onurcangencbilkent@gmail.com"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="https://github.com/onurcangnc"><i class="fa fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/onurcangnc"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://www.instagram.com/onurcan.gnc"><i class="fa fa-instagram"></i></a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4 col-sm-4">
+          <ul class="footer-nav">
+            <li><a href="https://portfolio.onurcangenc.com.tr/">About</a></li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
+
+</body>
+</html>
