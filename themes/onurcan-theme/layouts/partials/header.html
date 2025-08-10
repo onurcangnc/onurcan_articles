@@ -14,11 +14,13 @@
 
     <div class="collapse navbar-collapse" id="main-navbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/">Home</a></li>
-        <li><a href="/html5-templates/">HTML5 Templates</a></li>
-        <li><a href="/wordpress-themes/">Wordpress Themes</a></li>
-        <li><a href="/design-inspiration/">Design Inspiration</a></li>
-        <li><a href="/resources/">Resources</a></li>
+        {{ if .Site.Menus.main }}
+          {{ range .Site.Menus.main }}
+          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+          {{ end }}
+        {{ else }}
+          <li><a href="/">Home</a></li>
+        {{ end }}
       </ul>
     </div>
   </div>
