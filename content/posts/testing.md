@@ -1,9 +1,10 @@
 ---
-title: '"><img src=x onerror=alert(1)>'
+title: Onurcan Test Yaptı
 date: 2025-08-06T02:58:00.000+03:00
 description: Onurcan
-thumbnail: /uploads/whatsapp-görsel-2025-08-02-saat-23.36.30_a244ca26.jpg
+thumbnail: /uploads/1721734492532.jpeg
 tags:
-  - <script>alert(1)</script>
+  - Onurcan Test Yaptı
 ---
-"><img src=x onerror=alert(1)>
+
+Onurcan Test Yaptı
