@@ -1,7 +1,6 @@
 # Local Netlify folder
 # Build ve modüller
 node_modules/
-public/
 .env
 .netlify
 
