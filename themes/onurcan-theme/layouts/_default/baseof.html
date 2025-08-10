@@ -1,44 +1,49 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" lang="{{ .Site.LanguageCode | default "en" }}">
   <head>
+    {{ hugo.Generator }}
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {{/* Title: Page Title | Site Title */}}
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
 
-    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+
     {{ partial "head.html" . }}
 
+    <!-- CSS -->
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="/assets/css/animate.css">
     <link rel="stylesheet" href="/assets/css/style.css">
+
+    <!-- AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5907670584730847" crossorigin="anonymous"></script>
+    <!-- Google CSE -->
+    {{ with .Site.Params.googleCseCx }}
+    <script async src="https://cse.google.com/cse.js?cx={{ . }}"></script>
+    {{ end }}
   </head>
 
   <body>
     {{ partial "header.html" . }}
 
     <main>
-      {{ block "main" . }}{{ end }}
+      <div class="container">
+        <div class="row">
+          {{ block "main" . }}{{ end }}
+          {{/* Sidebar on list/home pages, not on single by default; singles can include too if desired */}}
+        </div>
+      </div>
     </main>
 
     {{ partial "footer.html" . }}
 
+    <!-- JS -->
     <script src="/assets/js/jquery-2.1.3.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/jQuery.scrollSpeed.js"></script>
     <script>
-      $(function() {
-        jQuery.scrollSpeed(100, 1000);
-      });
+      $(function() { if (typeof jQuery !== 'undefined' && typeof jQuery.scrollSpeed === 'function') { jQuery.scrollSpeed(100, 1000); } });
     </script>
-
-    <script>
-      const token = window.location.hash.match(/invite_token=([^&]+)/);
-      if (token && !window.location.pathname.startsWith('/admin')) {
-        window.location.href = '/admin/#invite_token=' + token[1];
-      }
-    </script>
-
   </body>
 </html>
