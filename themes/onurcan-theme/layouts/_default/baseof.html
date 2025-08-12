@@ -6,7 +6,7 @@
     {{/* Title: Page Title | Site Title */}}
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
 
-    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="/assets/img/favicon.ico">
 
     {{ partial "head.html" . }}
 
@@ -39,7 +39,7 @@
     {{ partial "footer.html" . }}
 
     <!-- JS -->
-    <script src="/assets/js/jquery-2.1.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-7v6GpW/T/j0r06Pq4jG3Ejj6mUeJ8V+RaH59BIL2yHc=" crossorigin="anonymous"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/jQuery.scrollSpeed.js"></script>
     <script>
