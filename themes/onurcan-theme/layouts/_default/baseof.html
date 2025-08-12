@@ -38,8 +38,16 @@
 
     {{ partial "footer.html" . }}
 
-    <!-- JS -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-7v6GpW/T/j0r06Pq4jG3Ejj6mUeJ8V+RaH59BIL2yHc=" crossorigin="anonymous"></script>
+    
+      <!-- JS: body kapanışından hemen önce, sıralı -->
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
+
+      <!-- Eğer Bootstrap 4 ise Popper gerekli -->
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/jQuery.scrollSpeed.js"></script>
     <script>
