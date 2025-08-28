@@ -10,8 +10,6 @@ tags:
   - Cybersecurity
   - Penetration Testing
 ---
-## Introduction
-
 Hi everyone! In this article, I’d like to share my **eWPT (eLearnSecurity Web Application Penetration Tester)** exam experience. I’ll walk you through my expectations before the test, my exam-day approach, the materials I used to prepare, and some final thoughts.  
 
 Overall, the exam does a good job covering what a web application penetration tester should know. However, it is heavily focused on **CMS exploitation** (WordPress, Drupal, Joomla), which doesn’t always reflect the wide variety of applications we encounter in real-world scenarios.  
