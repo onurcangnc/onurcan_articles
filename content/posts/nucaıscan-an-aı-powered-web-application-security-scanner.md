@@ -1,8 +1,10 @@
 ---
+draft: false
+author: Onurcan Genç
 title: "NucAIScan: An AI-Powered Web Application Security Scanner"
 date: 2025-09-07T22:15:00.000+03:00
-author: Onurcan Genç
 description: Onurcan Genç · ~9 min read
+thumbnail: /uploads/1_ds4n30jet2uuojdzhqdd_a.webp
 tags:
   - Cybersecurity
   - Project
@@ -10,17 +12,7 @@ tags:
 categories:
   - Cybersecurity
   - Tools
-draft: false
-thumbnail: /uploads/1_ds4n30jet2uuojdzhqdd_a.webp
 ---
-
-# NucAIScan: An AI-Powered Web Application Security Scanner  
-
-*By Onurcan Genç*  
-
----
-
-## Introduction  
 Hello everyone! About a week ago, I started working on a new idea that turned into a project I now call **NucAIScan**. Initially, I had no plans to build anything related to offensive security or cyber threat intelligence since my main focus was preparing for the **eWPTX exam**. But sometimes, inspiration shows up when you least expect it.  
 
 During a holiday break, a bug bounty friend of mine said:  
