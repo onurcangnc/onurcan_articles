@@ -4,7 +4,7 @@ author: Onurcan Genç
 title: "NucAIScan: An AI-Powered Web Application Security Scanner"
 date: 2025-09-07T22:15:00.000+03:00
 description: Onurcan Genç · ~9 min read
-thumbnail: /uploads/1_ds4n30jet2uuojdzhqdd_a.webp
+thumbnail: https://i.ibb.co/JD0S4BY/1-DS4-N30je-T2uu-OJDZHQd-D-A.webp
 tags:
   - Cybersecurity
   - Project
