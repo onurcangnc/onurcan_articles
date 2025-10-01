@@ -11,8 +11,8 @@
     {{ partial "head.html" . }}
 
         <!-- Ezoic Privacy Scripts (önce yüklenmeli) -->
-    <script src="https://cmp.gatekeeperconsent.com/min.js" data-cfasync="true"></script>
-    <script src="https://the.gatekeeperconsent.com/cmp.min.js" data-cfasync="true"></script>
+    <script src="https://cmp.gatekeeperconsent.com/min.js" data-cfasync="false"></script>
+    <script src="https://the.gatekeeperconsent.com/cmp.min.js" data-cfasync="false"></script>
 
     <!-- Ezoic Header Script -->
     <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
@@ -62,5 +62,10 @@
     <script>
       $(function() { if (typeof jQuery !== 'undefined' && typeof jQuery.scrollSpeed === 'function') { jQuery.scrollSpeed(100, 1000); } });
     </script>
+    <script>
+  ezstandalone.cmd.push(function () {
+      ezstandalone.showAds(101, 102, 103, 104, 105);
+  });
+</script>
   </body>
 </html>
