@@ -10,14 +10,23 @@
 
     {{ partial "head.html" . }}
 
+        <!-- Ezoic Privacy Scripts (önce yüklenmeli) -->
+    <script src="https://cmp.gatekeeperconsent.com/min.js" data-cfasync="true"></script>
+    <script src="https://the.gatekeeperconsent.com/cmp.min.js" data-cfasync="true"></script>
+
+    <!-- Ezoic Header Script -->
+    <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
+    <script>
+      window.ezstandalone = window.ezstandalone || {};
+      ezstandalone.cmd = ezstandalone.cmd || [];
+    </script>
+
     <!-- CSS -->
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="/assets/css/animate.css">
     <link rel="stylesheet" href="/assets/css/style.css">
 
-    <!-- AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5907670584730847" crossorigin="anonymous"></script>
     <!-- Google CSE -->
     {{ with .Site.Params.googleCseCx }}
     <script async src="https://cse.google.com/cse.js?cx=705fe69a32f8348ab"></script>
