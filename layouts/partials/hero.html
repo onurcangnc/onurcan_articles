@@ -147,13 +147,13 @@
     },
     whoami: function() {
       return [
-        '<span class="t-val">Onurcan Genç</span> — Offensive Security & AI Red Team Researcher',
-        '<span class="t-dim">├─</span> 6 published CVEs (MITRE + USOM)',
-        '<span class="t-dim">├─</span> eWPTXv3 · eWPT · Security+ · C-AI/MLPen',
-        '<span class="t-dim">├─</span> 16 months hands-on pentest experience',
-        '<span class="t-dim">├─</span> Former Deloitte CyberOps · Bilishim Cybersecurity',
-        '<span class="t-dim">├─</span> 90+ Medium articles · Top 2% TryHackMe',
-        '<span class="t-dim">└─</span> Open to international opportunities',
+        'Onurcan Genç — Offensive Security & AI Red Team Researcher',
+        '├─ 6 published CVEs (MITRE + USOM)',
+        '├─ eWPTXv3 · eWPT · Security+ · C-AI/MLPen',
+        '├─ 16 months hands-on pentest experience',
+        '├─ Former Deloitte CyberOps · Bilishim Cybersecurity',
+        '├─ 90+ Medium articles · Top 2% TryHackMe',
+        '└─ Open to international opportunities',
       ];
     },
     ls: function() {
@@ -190,7 +190,11 @@
     var body = document.getElementById('term-body');
     var div = document.createElement('div');
     div.className = 'term-line';
-    div.innerHTML = html;
+    if (html.indexOf('<') === -1) {
+      div.textContent = html;
+    } else {
+      div.innerHTML = html;
+    }
     body.appendChild(div);
   }
 
