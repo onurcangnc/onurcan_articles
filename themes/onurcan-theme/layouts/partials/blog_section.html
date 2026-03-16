@@ -1,0 +1,17 @@
+<section id="blog" style="background:var(--cream-2)">
+  <div class="sec-label"><span class="sec-num">06</span><h2>Latest from the Blog</h2></div>
+  <div class="blog-grid">
+    {{ range site.Data.site_data.blog_posts }}
+    <div class="blog-card">
+      <div class="blog-tag">{{ .tag }}</div>
+      <div class="blog-title">{{ .title }}</div>
+      <p class="blog-desc">{{ .desc }}</p>
+      <div class="blog-date">{{ .date }}</div>
+      <a href="{{ .link }}" target="_blank" class="blog-link">Read article ↗</a>
+    </div>
+    {{ end }}
+  </div>
+  <div class="mt-24 text-center">
+    <a href="{{ site.Params.blog }}" target="_blank" class="btn-line">View all posts ↗</a>
+  </div>
+</section>

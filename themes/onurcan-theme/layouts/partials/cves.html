@@ -1,0 +1,16 @@
+<section id="cves" style="background:#fff">
+  <div class="sec-label"><span class="sec-num">01</span><h2>Published Vulnerabilities</h2></div>
+  <div class="cve-grid">
+    {{ range site.Data.cves }}
+    <div class="cve-card">
+      <div class="cve-top">
+        <span class="cve-id">{{ .id }}</span>
+        <span class="cvss {{ .cvss_class }}">{{ .cvss }}</span>
+      </div>
+      <div class="cve-title">{{ .title }}</div>
+      <div class="cve-tags">{{ range .tags }}<span class="ct">{{ . }}</span>{{ end }}</div>
+      <div class="cve-source">{{ .source }}</div>
+    </div>
+    {{ end }}
+  </div>
+</section>

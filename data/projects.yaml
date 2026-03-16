@@ -1,0 +1,83 @@
+- name: "PromptShot v1.0"
+  category: "AI Security"
+  cat_class: "cat-ai"
+  desc: "Multi-phase adversarial attack pipeline for red-teaming LLMs. Multi-agent jailbreak generation, system-prompt poisoning, and persona hijacking."
+  tags: ["Python", "LLM Red Team", "Jailbreak"]
+  link: "https://github.com/onurcangnc/PromptShotv1.0"
+
+- name: "NucAIScan"
+  category: "Offensive"
+  cat_class: "cat-sec"
+  desc: "AI-assisted DAST pipeline. Subfinder, Subzy, FFUF heuristic fuzzing, Nuclei with GPT-4 template selection and automated HTML reporting."
+  tags: ["Python", "Nuclei", "FFUF", "OpenAI"]
+  link: "https://github.com/onurcangnc/NucAIScan"
+
+- name: "LeakCTL"
+  category: "Offensive"
+  cat_class: "cat-sec"
+  desc: "Threat intelligence platform for credential leak monitoring. Telegram-integrated with Elasticsearch backend for automated leak ingestion and search."
+  tags: ["Python", "Elasticsearch", "Telegram", "CTI"]
+  link: "https://github.com/onurcangnc/auto_elastic_leak_searcher"
+
+- name: "ArchiveWraith"
+  category: "Offensive"
+  cat_class: "cat-sec"
+  desc: "Stealth Wayback Machine recon with smart URL filtering. Extracts high-value endpoints from historical snapshots."
+  tags: ["Python", "OSINT", "Wayback"]
+  link: "https://github.com/onurcangnc/ArchiveWraith"
+
+- name: "web_app_ai_scanner"
+  category: "Offensive"
+  cat_class: "cat-sec"
+  desc: "Full AI-assisted web scanner: Subfinder, Httpx, FFUF, Katana, WhatWeb, Wappalyzer, Wayback, Subzy, Nuclei. Full report generation."
+  tags: ["Python", "Recon", "DAST"]
+  link: "https://github.com/onurcangnc/web_app_ai_scanner"
+
+- name: "ai-text-humanizer"
+  category: "AI/ML"
+  cat_class: "cat-ai"
+  desc: "AI-generated text optimizer using BERT MLM + Q-Learning + 4-detector ensemble. Reduces AI detection scores while preserving semantic quality."
+  tags: ["Python", "BERT", "Q-Learning"]
+  link: "https://github.com/onurcangnc/ai-text-humanizer"
+
+- name: "Moodle Student Tracker"
+  category: "AI/ML"
+  cat_class: "cat-ai"
+  desc: "Telegram-integrated RAG chatbot tracking Moodle materials, lectures, grades, and attendances in real-time."
+  tags: ["Python", "RAG", "Telegram"]
+  link: "https://github.com/onurcangnc/Moodle_Student_Tracker"
+
+- name: "CVE-2025-10878 PoC"
+  category: "CVE PoC"
+  cat_class: "cat-cve"
+  desc: "SQL Injection auth bypass PoC for AdminPando v1.0.1. CVSS 10.0 Critical — full unauthenticated admin access."
+  tags: ["SQLi", "CVSS 10.0", "Auth Bypass"]
+  link: "https://github.com/onurcangnc/CVE-2025-10878-AdminPandov1.0.1-SQLi"
+
+- name: "CVE-2025-57520 PoC"
+  category: "CVE PoC"
+  cat_class: "cat-cve"
+  desc: "Stored XSS in Decap CMS admin preview panel. Contributor-to-admin session hijacking PoC."
+  tags: ["XSS", "Decap CMS", "Stored"]
+  link: "https://github.com/onurcangnc/CVE-2025-57520-Stored-XSS-in-Decap-CMS-3.8.3-"
+
+- name: "web_app_recon_ci-cd"
+  category: "Offensive"
+  cat_class: "cat-sec"
+  desc: "Recon-as-Code: fully automated passive reconnaissance via GitHub Actions CI/CD pipeline."
+  tags: ["Python", "GitHub Actions", "CI/CD"]
+  link: "https://github.com/onurcangnc/web_app_recon_ci-cd_public"
+
+- name: "SmartHomeSystem"
+  category: "Dev"
+  cat_class: "cat-dev"
+  desc: "Smart home automation implementing 6 GoF design patterns (Singleton, Abstract Factory, Observer, Mediator, Composite, Proxy) in Java."
+  tags: ["Java", "GoF Patterns", "OOP"]
+  link: "https://github.com/onurcangnc/SmartHomeSystem"
+
+- name: "StoX Market"
+  category: "Dev"
+  cat_class: "cat-dev"
+  desc: "Android cryptocurrency trading app with real-time price tracking, buy/sell functionality, and portfolio management."
+  tags: ["Kotlin", "Android", "API"]
+  link: "https://github.com/onurcangnc/ctis487_kotlin_project"

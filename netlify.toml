@@ -1,16 +1,17 @@
 [build]
   publish = "public"
-  command = "hugo"
+  command = "hugo --minify"
 
 [build.environment]
-  HUGO_VERSION = "0.148.2"
-  HUGO_ENV = "production"
-  HUGO_ENABLEGITINFO = "true"
-
-[context.production.environment]
-  HUGO_VERSION = "0.148.2"
+  HUGO_VERSION = "0.124.0"
 
 [[redirects]]
-  from = "/admin/*"
-  to = "/admin/index.html"
+  from = "/posts/*"
+  to = "https://blog.onurcangenc.com.tr/posts/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
   status = 200

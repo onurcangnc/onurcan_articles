@@ -1,9 +1,7 @@
-baseURL = "https://onurcanarticles.netlify.app/"
+baseURL = "https://onurcangenc.com.tr"
 languageCode = "en-us"
-title = "Onurcan Genç | Blog"
-theme = "onurcan-theme"
-[pagination]
-  pagerSize = 10
+title = "Onurcan Genç"
+theme = ""
 
 [params]
   name = "Onurcan Genç"

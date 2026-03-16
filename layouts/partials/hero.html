@@ -1,0 +1,45 @@
+<section class="hero">
+  <div>
+    <div class="status-pill">
+      <span class="status-dot"></span>{{ .Site.Params.status }}
+    </div>
+    <div class="hero-sub">{{ .Site.Params.name }} · {{ .Site.Params.location }}</div>
+    <h1>Offensive Security<br>&amp; <em>AI Red Team</em><br>Researcher</h1>
+    <p class="hero-desc">{{ .Site.Params.description }}</p>
+    <div class="hero-badges">
+      <span class="badge active">eWPTXv3</span>
+      <span class="badge active">eWPT</span>
+      <span class="badge active">Security+</span>
+      <span class="badge active">C-AI/MLPen</span>
+      <span class="badge">6 CVEs</span>
+      <span class="badge">90+ Articles</span>
+      <span class="badge">Top 2% TryHackMe</span>
+    </div>
+    <div class="hero-ctas">
+      <a href="#cves" class="btn-dark">View Research</a>
+      <a href="{{ .Site.Params.blog }}" target="_blank" class="btn-line">Blog ↗</a>
+      <a href="{{ .Site.Params.cv_link }}" class="btn-coral">Download CV</a>
+    </div>
+  </div>
+  <div class="terminal">
+    <div class="term-bar">
+      <div class="term-dot t1"></div>
+      <div class="term-dot t2"></div>
+      <div class="term-dot t3"></div>
+    </div>
+    <div class="term-body">
+      <div><span class="t-p">onurcan@kali</span><span class="t-dim">:~$ </span><span class="t-cmd">cat profile.json</span></div>
+      <div class="t-dim">──────────────────────────</div>
+      <div><span class="t-lbl">"name"</span><span class="t-dim">:   </span><span class="t-val">"{{ .Site.Params.name }}"</span></div>
+      <div><span class="t-lbl">"role"</span><span class="t-dim">:   </span><span class="t-val">"Offensive Sec / AI Red Teamer"</span></div>
+      <div><span class="t-lbl">"exp"</span><span class="t-dim">:    </span><span class="t-val">"Deloitte · Bilişim Cyber"</span></div>
+      <div><span class="t-lbl">"certs"</span><span class="t-dim">:  </span><span class="t-val">["eWPTXv3","eWPT","Sec+","C-AI/MLPen"]</span></div>
+      <div><span class="t-lbl">"cves"</span><span class="t-dim">:   </span><span class="t-val">6</span><span class="t-dim">,  // MITRE + USOM</span></div>
+      <div><span class="t-lbl">"focus"</span><span class="t-dim">:  </span><span class="t-val">["LLM jailbreak","prompt injection",</span></div>
+      <div><span class="t-val" style="padding-left:72px">"web appsec","CVE research"]</span></div>
+      <div><span class="t-lbl">"open"</span><span class="t-dim">:   </span><span class="t-val">true</span><span class="t-dim">  // international roles</span></div>
+      <div class="t-dim">──────────────────────────</div>
+      <div><span class="t-p">onurcan@kali</span><span class="t-dim">:~$ </span><span class="t-cur"></span></div>
+    </div>
+  </div>
+</section>

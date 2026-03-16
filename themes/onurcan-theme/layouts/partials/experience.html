@@ -1,0 +1,19 @@
+<section id="exp" style="background:#fff">
+  <div class="sec-label"><span class="sec-num">03</span><h2>Work History</h2></div>
+  <div class="exp-list">
+    {{ range site.Data.experience }}
+    <div class="exp-row">
+      <div class="exp-left">
+        <div class="exp-company">{{ .company }}</div>
+        <div class="exp-date">{{ .date }}</div>
+        <div class="exp-date" style="margin-top:4px">{{ .location }}</div>
+      </div>
+      <div class="exp-right">
+        <h3>{{ .role }}</h3>
+        <p>{{ .desc }}</p>
+        <div class="exp-tags">{{ range .tags }}<span class="etag">{{ . }}</span>{{ end }}</div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</section>
