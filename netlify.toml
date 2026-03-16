@@ -4,6 +4,10 @@
 
 [build.environment]
   HUGO_VERSION = "0.124.0"
+  NODE_VERSION = "18"
+
+[functions]
+  node_bundler = "esbuild"
 
 [[redirects]]
   from = "/posts/cve-2025-10878-sql-authentication-bypass-in-fikir-odaları-adminpando/"
