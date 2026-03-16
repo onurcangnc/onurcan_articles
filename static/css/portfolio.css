@@ -43,7 +43,7 @@ h1 em { font-style: italic; color: var(--coral); }
 .btn-line { background: transparent; color: var(--ink); padding: 11px 28px; font-family: var(--sans); font-size: 13px; font-weight: 500; border: 1px solid var(--border-2); cursor: pointer; letter-spacing: 0.03em; text-decoration: none; transition: border-color 0.2s, color 0.2s; display: inline-block; }
 .btn-line:hover { border-color: var(--coral); color: var(--coral); }
 
-.terminal { background: var(--ink); border-radius: 3px; padding: 24px 24px 20px; font-family: var(--mono); font-size: 12px; line-height: 1.85; position: relative; }
+.terminal { background: var(--ink); border-radius: 3px; padding: 24px 24px 20px; font-family: var(--mono); font-size: 12px; line-height: 1.85; }
 .term-bar { position: absolute; top: 12px; left: 16px; display: flex; gap: 6px; }
 .term-dot { width: 10px; height: 10px; border-radius: 50%; }
 .t1 { background: #FF5F57; } .t2 { background: #FFBD2E; } .t3 { background: #28C840; }
@@ -180,10 +180,10 @@ footer { background: var(--ink); padding: 44px 6%; display: flex; justify-conten
 
 /* === INTERACTIVE TERMINAL === */
 .term-title { font-family: var(--mono); font-size: 11px; color: #555; margin-left: 12px; letter-spacing: 0.03em; }
-.term-line { display: block; line-height: 1.85; font-family: var(--mono); font-size: 12px; word-break: break-word; }
+.term-line { display: block; line-height: 1.85; font-family: var(--mono); font-size: 12px; white-space: pre-wrap; word-break: break-word; }
 .term-input-row { display: flex; align-items: center; font-family: var(--mono); font-size: 12px; padding-top: 6px; flex-shrink: 0; }
 .term-input { background: transparent; border: none; outline: none; color: #F5F0E8; font-family: var(--mono); font-size: 12px; flex: 1; caret-color: var(--coral); padding: 0; margin: 0; }
-.terminal { cursor: text; height: 420px; display: flex; flex-direction: column; overflow: hidden; }
+.terminal { cursor: text; height: 420px; max-height: 420px; display: flex; flex-direction: column; overflow: hidden; }
 #term-body { flex: 1; overflow-y: auto; min-height: 0; }
 #term-body::-webkit-scrollbar { width: 3px; }
 #term-body::-webkit-scrollbar-track { background: transparent; }
