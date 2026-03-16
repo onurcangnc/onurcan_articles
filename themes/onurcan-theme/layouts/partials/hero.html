@@ -21,25 +21,271 @@
       <a href="{{ .Site.Params.cv_link }}" class="btn-coral">Download CV</a>
     </div>
   </div>
-  <div class="terminal">
+
+  <div class="terminal" id="terminal" onclick="focusTerminal()">
     <div class="term-bar">
       <div class="term-dot t1"></div>
       <div class="term-dot t2"></div>
       <div class="term-dot t3"></div>
+      <span class="term-title">onurcan@kali: ~</span>
     </div>
-    <div class="term-body">
-      <div><span class="t-p">onurcan@kali</span><span class="t-dim">:~$ </span><span class="t-cmd">cat profile.json</span></div>
-      <div class="t-dim">──────────────────────────</div>
-      <div><span class="t-lbl">"name"</span><span class="t-dim">:   </span><span class="t-val">"{{ .Site.Params.name }}"</span></div>
-      <div><span class="t-lbl">"role"</span><span class="t-dim">:   </span><span class="t-val">"Offensive Sec / AI Red Teamer"</span></div>
-      <div><span class="t-lbl">"exp"</span><span class="t-dim">:    </span><span class="t-val">"Deloitte · Bilishim Cybersecurity & AI"</span></div>
-      <div><span class="t-lbl">"certs"</span><span class="t-dim">:  </span><span class="t-val">["eWPTXv3","eWPT","Sec+","C-AI/MLPen"]</span></div>
-      <div><span class="t-lbl">"cves"</span><span class="t-dim">:   </span><span class="t-val">6</span><span class="t-dim">,  // MITRE + USOM</span></div>
-      <div><span class="t-lbl">"focus"</span><span class="t-dim">:  </span><span class="t-val">["LLM jailbreak","prompt injection",</span></div>
-      <div><span class="t-val" style="padding-left:72px">"web appsec","CVE research"]</span></div>
-      <div><span class="t-lbl">"open"</span><span class="t-dim">:   </span><span class="t-val">true</span><span class="t-dim">  // international roles</span></div>
-      <div class="t-dim">──────────────────────────</div>
-      <div><span class="t-p">onurcan@kali</span><span class="t-dim">:~$ </span><span class="t-cur"></span></div>
+    <div class="term-body" id="term-body">
+      <div class="term-line">
+        <span class="t-p">onurcan@kali</span><span class="t-dim">:~$ </span>
+        <span class="t-cmd">cat profile.json</span>
+      </div>
+      <div class="t-dim term-line">──────────────────────────</div>
+      <div class="term-line"><span class="t-lbl">"name"</span><span class="t-dim">:   </span><span class="t-val">"Onurcan Genç"</span></div>
+      <div class="term-line"><span class="t-lbl">"role"</span><span class="t-dim">:   </span><span class="t-val">"Offensive Sec / AI Red Teamer"</span></div>
+      <div class="term-line"><span class="t-lbl">"exp"</span><span class="t-dim">:    </span><span class="t-val">"Deloitte · Bilishim Cybersecurity &amp; AI"</span></div>
+      <div class="term-line"><span class="t-lbl">"certs"</span><span class="t-dim">:  </span><span class="t-val">["eWPTXv3","eWPT","Sec+","C-AI/MLPen"]</span></div>
+      <div class="term-line"><span class="t-lbl">"cves"</span><span class="t-dim">:   </span><span class="t-val">6</span><span class="t-dim">,  // MITRE + USOM</span></div>
+      <div class="term-line"><span class="t-lbl">"focus"</span><span class="t-dim">:  </span><span class="t-val">["LLM jailbreak","prompt injection",</span></div>
+      <div class="term-line"><span class="t-val" style="padding-left:72px">"web appsec","CVE research"]</span></div>
+      <div class="term-line"><span class="t-lbl">"open"</span><span class="t-dim">:   </span><span class="t-val">true</span><span class="t-dim">  // international roles</span></div>
+      <div class="t-dim term-line">──────────────────────────</div>
+      <div class="term-line t-dim">Type <span class="t-val">help</span> to explore...</div>
+    </div>
+    <div class="term-input-row" id="term-input-row">
+      <span class="t-p">onurcan@kali</span><span class="t-dim">:~$ </span>
+      <input
+        type="text"
+        id="term-input"
+        class="term-input"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Terminal input"
+      />
     </div>
   </div>
 </section>
+
+<script>
+(function() {
+  var BLOG = 'https://blog.onurcangenc.com.tr';
+  var GH   = 'https://github.com/onurcangnc';
+
+  var FS = {
+    'profile.json': [
+      {lbl: '"name"',    dim: ':    ', val: '"Onurcan Genç"'},
+      {lbl: '"role"',    dim: ':    ', val: '"Offensive Security / AI Red Teamer"'},
+      {lbl: '"location"', dim: ': ', val: '"Ankara, Turkey"'},
+      {lbl: '"email"',   dim: ':   ', val: '"onurcangencbilkent@gmail.com"'},
+      {lbl: '"github"',  dim: ':  ', val: '"github.com/onurcangnc"'},
+      {lbl: '"blog"',    dim: ':    ', val: '"blog.onurcangenc.com.tr"'},
+      {lbl: '"open"',    dim: ':    ', val: 'true', comment: '  // international roles'},
+    ],
+    'cves.txt': [
+      {val: 'CVE-2025-10878', dim: '  CVSS 10.0 · Critical  ', text: 'SQL Injection — AdminPando'},
+      {val: 'CVE-2025-57520', dim: '  HIGH            ', text: 'Stored XSS — Decap CMS ≤ 3.8.3'},
+      {val: 'CVE-2025-60506', dim: '  HIGH            ', text: 'Stored XSS — Moodle PDF Annotator'},
+      {val: 'CVE-2025-60507', dim: '  HIGH            ', text: 'XSS + Prompt Injection — Moodle GeniAI'},
+      {val: 'CVE-2025-60511', dim: '  MEDIUM          ', text: 'IDOR — Moodle OpenAI Chat Block'},
+      {val: 'CVE-2025-10228', dim: '  CVSS 8.8 · High  ', text: 'Session Fixation — Agentis'},
+    ],
+    'skills.txt': [
+      {dim: 'Offensive:  ', val: 'Burp Suite  Metasploit  FFUF  Nuclei  Nmap  SQLmap'},
+      {dim: 'AI/LLM:     ', val: 'Prompt Injection  Jailbreak  MITRE ATLAS  LangChain'},
+      {dim: 'Recon:      ', val: 'Subfinder  Httpx  Subzy  Katana  Wayback  Shodan'},
+      {dim: 'Languages:  ', val: 'Python  Java  Kotlin  C/C++  PHP  SQL  Bash'},
+      {dim: 'Infra:      ', val: 'Docker  GitHub Actions  Flask  Railway  Elasticsearch'},
+    ],
+    'experience.txt': [
+      {val: 'Deloitte CyberOps', dim: '         Nov 2025 – Feb 2026  ', text: 'Cybersecurity Intern'},
+      {val: 'Bilishim Cybersecurity', dim: '    May 2025 – Sep 2025  ', text: 'Penetration Tester'},
+      {val: 'Bilishim Cybersecurity', dim: '    Jan 2025 – May 2025  ', text: 'Pentest Long-Term Intern'},
+      {val: 'Bilishim Cybersecurity', dim: '    Jun 2024 – Jul 2024  ', text: 'Pentest Summer Intern'},
+      {val: 'VulnerDay', dim: '                 Feb 2024 – May 2024  ', text: 'Envoy Team Member'},
+    ],
+    'certs.txt': [
+      {val: 'eWPTXv3', text: '   Web Application Penetration Tester eXtreme  ', dim: 'INE · Dec 2025'},
+      {val: 'eWPT', text: '      Web Application Penetration Tester          ', dim: 'INE · Jun 2025'},
+      {val: 'Security+', text: ' CompTIA Security+ ce (SY0-701)              ', dim: 'Aug 2024'},
+      {val: 'CAP', text: '       Certified AppSec Practitioner               ', dim: 'SecOps · Mar 2025'},
+      {val: 'CNSP', text: '      Certified Network Security Practitioner     ', dim: 'SecOps · Jun 2024'},
+    ],
+    'projects.txt': [
+      {val: 'PromptShot', text: '       AI red team framework — multi-phase LLM adversarial pipeline'},
+      {val: 'NucAIScan', text: '        AI-assisted DAST — Subfinder + FFUF + Nuclei + GPT-4'},
+      {val: 'LeakCTL', text: '          Threat intel platform — Elasticsearch + Telegram'},
+      {val: 'ArchiveWraith', text: '    Stealth Wayback recon with smart URL filtering'},
+      {val: 'ai-text-humanizer', text: ' BERT MLM + Q-Learning + 4-detector ensemble'},
+    ],
+    'contact.txt': [
+      {dim: 'email:    ', val: 'onurcangencbilkent@gmail.com'},
+      {dim: 'github:   ', val: 'github.com/onurcangnc'},
+      {dim: 'linkedin: ', val: 'linkedin.com/in/onurcangenc'},
+      {dim: 'blog:     ', val: 'blog.onurcangenc.com.tr'},
+      {dim: 'medium:   ', val: 'medium.com/@onurcangenc'},
+    ],
+  };
+
+  function buildLine(entry) {
+    var div = document.createElement('div');
+    div.className = 'term-line';
+    if (entry.lbl) {
+      var s1 = document.createElement('span'); s1.className = 't-lbl'; s1.textContent = entry.lbl; div.appendChild(s1);
+    }
+    if (entry.dim) {
+      var s2 = document.createElement('span'); s2.className = 't-dim'; s2.textContent = entry.dim; div.appendChild(s2);
+    }
+    if (entry.val) {
+      var s3 = document.createElement('span'); s3.className = 't-val'; s3.textContent = entry.val; div.appendChild(s3);
+    }
+    if (entry.text) {
+      var s4 = document.createTextNode(entry.text); div.appendChild(s4);
+    }
+    if (entry.comment) {
+      var s5 = document.createElement('span'); s5.className = 't-dim'; s5.textContent = entry.comment; div.appendChild(s5);
+    }
+    return div;
+  }
+
+  function buildTextLine(text, cls) {
+    var div = document.createElement('div');
+    div.className = 'term-line';
+    if (cls) div.classList.add(cls);
+    div.textContent = text;
+    return div;
+  }
+
+  function buildHelpLine(cmd, desc) {
+    var div = document.createElement('div');
+    div.className = 'term-line';
+    var pre = document.createTextNode('  ');
+    div.appendChild(pre);
+    var cs = document.createElement('span'); cs.className = 't-val'; cs.textContent = cmd; div.appendChild(cs);
+    var ds = document.createTextNode(' ' + desc); div.appendChild(ds);
+    return div;
+  }
+
+  function buildWhoamiLine(prefix, text) {
+    var div = document.createElement('div');
+    div.className = 'term-line';
+    if (prefix === 'name') {
+      var ns = document.createElement('span'); ns.className = 't-val'; ns.textContent = 'Onurcan Genç'; div.appendChild(ns);
+      div.appendChild(document.createTextNode(' — Offensive Security & AI Red Team Researcher'));
+    } else {
+      var ps = document.createElement('span'); ps.className = 't-dim'; ps.textContent = prefix; div.appendChild(ps);
+      div.appendChild(document.createTextNode(' ' + text));
+    }
+    return div;
+  }
+
+  function runCommand(raw) {
+    var cmd = raw.trim().toLowerCase();
+    if (!cmd) return [];
+
+    if (cmd.startsWith('cat ')) {
+      var file = cmd.slice(4).trim();
+      if (FS[file]) return FS[file].map(buildLine);
+      var errDiv = document.createElement('div');
+      errDiv.className = 'term-line';
+      var es = document.createElement('span'); es.className = 't-dim'; es.textContent = 'cat: ' + file + ': No such file'; errDiv.appendChild(es);
+      return [errDiv];
+    }
+
+    if (cmd === 'help') {
+      var lines = [];
+      var hdr = document.createElement('div'); hdr.className = 'term-line';
+      var hs = document.createElement('span'); hs.className = 't-dim'; hs.textContent = 'Available commands:'; hdr.appendChild(hs);
+      lines.push(hdr);
+      lines.push(buildHelpLine('whoami', '          who is Onurcan?'));
+      lines.push(buildHelpLine('ls', '              list available files'));
+      lines.push(buildHelpLine('cat profile.json', ' full profile'));
+      lines.push(buildHelpLine('cat cves.txt', '     published CVEs'));
+      lines.push(buildHelpLine('cat skills.txt', '   tools & languages'));
+      lines.push(buildHelpLine('cat experience.txt', ' work history'));
+      lines.push(buildHelpLine('cat certs.txt', '    certifications'));
+      lines.push(buildHelpLine('cat projects.txt', ' key projects'));
+      lines.push(buildHelpLine('cat contact.txt', '  get in touch'));
+      lines.push(buildHelpLine('open blog', '        open blog in new tab'));
+      lines.push(buildHelpLine('open github', '      open GitHub in new tab'));
+      lines.push(buildHelpLine('clear', '            clear terminal'));
+      return lines;
+    }
+
+    if (cmd === 'whoami') {
+      return [
+        buildWhoamiLine('name', ''),
+        buildWhoamiLine('\u251C\u2500', '6 published CVEs (MITRE + USOM)'),
+        buildWhoamiLine('\u251C\u2500', 'eWPTXv3 \u00B7 eWPT \u00B7 Security+ \u00B7 C-AI/MLPen'),
+        buildWhoamiLine('\u251C\u2500', '16 months hands-on pentest experience'),
+        buildWhoamiLine('\u251C\u2500', 'Former Deloitte CyberOps \u00B7 Bilishim Cybersecurity'),
+        buildWhoamiLine('\u251C\u2500', '90+ Medium articles \u00B7 Top 2% TryHackMe'),
+        buildWhoamiLine('\u2514\u2500', 'Open to international opportunities'),
+      ];
+    }
+
+    if (cmd === 'ls') {
+      var lsDiv = document.createElement('div');
+      lsDiv.className = 'term-line';
+      Object.keys(FS).forEach(function(f, i) {
+        if (i > 0) lsDiv.appendChild(document.createTextNode('  '));
+        var fs = document.createElement('span'); fs.className = 't-val'; fs.textContent = f; lsDiv.appendChild(fs);
+      });
+      return [lsDiv];
+    }
+
+    if (cmd === 'clear') {
+      document.getElementById('term-body').replaceChildren();
+      return null;
+    }
+
+    if (cmd === 'open blog') {
+      window.open(BLOG, '_blank');
+      var ob = document.createElement('div'); ob.className = 'term-line';
+      var obs = document.createElement('span'); obs.className = 't-dim'; obs.textContent = 'Opening blog...'; ob.appendChild(obs);
+      return [ob];
+    }
+
+    if (cmd === 'open github') {
+      window.open(GH, '_blank');
+      var og = document.createElement('div'); og.className = 'term-line';
+      var ogs = document.createElement('span'); ogs.className = 't-dim'; ogs.textContent = 'Opening GitHub...'; og.appendChild(ogs);
+      return [og];
+    }
+
+    var unkDiv = document.createElement('div'); unkDiv.className = 'term-line';
+    var us1 = document.createElement('span'); us1.className = 't-dim'; us1.textContent = 'command not found: ' + raw.trim() + ' \u2014 type '; unkDiv.appendChild(us1);
+    var us2 = document.createElement('span'); us2.className = 't-val'; us2.textContent = 'help'; unkDiv.appendChild(us2);
+    var us3 = document.createElement('span'); us3.className = 't-dim'; us3.textContent = ' for available commands'; unkDiv.appendChild(us3);
+    return [unkDiv];
+  }
+
+  function appendPrompt(cmd) {
+    var body = document.getElementById('term-body');
+    var div = document.createElement('div');
+    div.className = 'term-line';
+    var p = document.createElement('span'); p.className = 't-p'; p.textContent = 'onurcan@kali'; div.appendChild(p);
+    var d = document.createElement('span'); d.className = 't-dim'; d.textContent = ':~$ '; div.appendChild(d);
+    var c = document.createElement('span'); c.className = 't-cmd'; c.textContent = cmd; div.appendChild(c);
+    body.appendChild(div);
+  }
+
+  function scrollBottom() {
+    var t = document.getElementById('terminal');
+    t.scrollTop = t.scrollHeight;
+  }
+
+  window.focusTerminal = function() {
+    document.getElementById('term-input').focus();
+  };
+
+  document.getElementById('term-input').addEventListener('keydown', function(e) {
+    if (e.key !== 'Enter') return;
+    var val = this.value;
+    this.value = '';
+    appendPrompt(val);
+    var output = runCommand(val);
+    if (output) {
+      var body = document.getElementById('term-body');
+      output.forEach(function(node) { body.appendChild(node); });
+    }
+    scrollBottom();
+  });
+
+})();
+</script>
