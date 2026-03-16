@@ -14,6 +14,14 @@ theme = "onurcan-theme"
   linkedin = "https://linkedin.com/in/onurcangenc"
   medium = "https://medium.com/@onurcangenc"
   blog = "https://blog.onurcangenc.com.tr"
-  cv_link = "mailto:onurcangencbilkent@gmail.com"
+  cv_link = "/cv/onurcan-genc-cv.pdf"
   status = "Available for international opportunities"
   description = "Senior researcher specializing in adversarial LLM attacks, application security, and vulnerability discovery. 6 published CVEs via MITRE & USOM. eWPTXv3 certified. Former Deloitte CyberOps."
+
+[security]
+  [security.http]
+    methods = ['(?i)GET']
+    urls = ['.*']
+
+[build]
+  writeStats = false

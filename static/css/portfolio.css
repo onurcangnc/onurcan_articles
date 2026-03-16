@@ -63,7 +63,15 @@ section { padding: 88px 6%; }
 .sec-num { font-family: var(--mono); font-size: 11px; color: var(--coral); letter-spacing: 0.1em; }
 h2 { font-family: var(--serif); font-size: clamp(26px, 3vw, 38px); font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
 
-.cve-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 0; background: var(--border); }
+.cve-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; background: var(--border); }
+
+@media (max-width: 1024px) {
+  .cve-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .cve-grid { grid-template-columns: 1fr; }
+}
 .cve-card { background: var(--cream); padding: 28px; position: relative; cursor: pointer; transition: background 0.2s; }
 .cve-card:hover { background: #fff; }
 .cve-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px; }

@@ -5,21 +5,21 @@
   desc: "Technical review and QA of penetration testing reports. Validated vulnerability findings, impact analysis, and remediation guidance. Alignment with MITRE ATT&CK and CVSS. Refined report structure for international non-Turkish engagements."
   tags: ["MITRE ATT&CK", "CVSS", "Pentest Reports", "QA"]
 
-- company: "BİLİŞİM CYBER"
+- company: "BİLİŞİM CYBERSECURITY & ARTIFICIAL INTELLIGENCE"
   role: "Penetration Tester"
   date: "May 2025 – Sep 2025"
   location: "Ankara · Hybrid"
   desc: "Web, mobile, wireless, and LAN penetration tests against real-world targets. AI/ML red team engagements. Cyber threat intelligence including dark web credential leak validation. Mentored junior interns. Built offensive security tooling."
   tags: ["Web AppSec", "Mobile", "AI/ML Red Team", "LAN", "CTI", "Burp Suite"]
 
-- company: "BİLİŞİM CYBER"
+- company: "BİLİŞİM CYBERSECURITY & ARTIFICIAL INTELLIGENCE"
   role: "Penetration Tester, Long-Term Intern"
   date: "Jan 2025 – May 2025"
   location: "Ankara · Hybrid"
   desc: "Application security assessments against real-world instances. LAN security tests. Cyber threat intelligence and dark web leak investigations. Wireless penetration testing. Mentored interns. Prepared for eWPT and OSCP."
   tags: ["Web AppSec", "LAN", "Wireless", "CTI", "eWPT Prep"]
 
-- company: "BİLİŞİM CYBER"
+- company: "BİLİŞİM CYBERSECURITY & ARTIFICIAL INTELLIGENCE"
   role: "Penetration Tester, Summer Intern"
   date: "Jun 2024 – Jul 2024"
   location: "Ankara · Remote"

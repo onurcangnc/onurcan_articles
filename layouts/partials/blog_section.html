@@ -1,14 +1,54 @@
 <section id="blog" style="background:var(--cream-2)">
   <div class="sec-label"><span class="sec-num">06</span><h2>Latest from the Blog</h2></div>
   <div class="blog-grid">
-    {{ range site.Data.site_data.blog_posts }}
-    <div class="blog-card">
-      <div class="blog-tag">{{ .tag }}</div>
-      <div class="blog-title">{{ .title }}</div>
-      <p class="blog-desc">{{ .desc }}</p>
-      <div class="blog-date">{{ .date }}</div>
-      <a href="{{ .link }}" target="_blank" class="blog-link">Read article ↗</a>
-    </div>
+    {{ $rssURL := "https://blog.onurcangenc.com.tr/rss/" }}
+    {{ with resources.GetRemote $rssURL }}
+      {{ with .Content }}
+        {{ $rss := unmarshal . }}
+        {{ $items := slice }}
+        {{ with $rss.rss }}
+          {{ with .channel }}
+            {{ with .item }}
+              {{ $items = . }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+        {{ range first 4 $items }}
+          {{ $title := .title }}
+          {{ $link := .link }}
+          {{ $desc := .description | plainify | truncate 120 }}
+          {{ $date := "" }}
+          {{ with .pubDate }}
+            {{ $date = time . | dateFormat "Jan 2, 2006" }}
+          {{ end }}
+          {{ $tag := "Blog" }}
+          {{ with .category }}
+            {{ if reflect.IsSlice . }}
+              {{ $tag = index . 0 }}
+            {{ else }}
+              {{ $tag = . }}
+            {{ end }}
+          {{ end }}
+          <div class="blog-card">
+            <div class="blog-tag">{{ $tag }}</div>
+            <div class="blog-title">{{ $title }}</div>
+            <p class="blog-desc">{{ $desc }}</p>
+            <div class="blog-date">{{ $date }}</div>
+            <a href="{{ $link }}" target="_blank" class="blog-link">Read article ↗</a>
+          </div>
+        {{ end }}
+      {{ end }}
+    {{ else }}
+      {{/* Fallback if RSS fetch fails */}}
+      {{ range site.Data.site_data.blog_posts }}
+      <div class="blog-card">
+        <div class="blog-tag">{{ .tag }}</div>
+        <div class="blog-title">{{ .title }}</div>
+        <p class="blog-desc">{{ .desc }}</p>
+        <div class="blog-date">{{ .date }}</div>
+        <a href="{{ .link }}" target="_blank" class="blog-link">Read article ↗</a>
+      </div>
+      {{ end }}
     {{ end }}
   </div>
   <div class="mt-24 text-center">
