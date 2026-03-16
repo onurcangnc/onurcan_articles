@@ -265,9 +265,17 @@
     body.appendChild(div);
   }
 
+  function appendLine(html) {
+    var body = document.getElementById('term-body');
+    var div = document.createElement('div');
+    div.className = 'term-line';
+    div.innerHTML = html;
+    body.appendChild(div);
+  }
+
   function scrollBottom() {
-    var t = document.getElementById('terminal');
-    t.scrollTop = t.scrollHeight;
+    var body = document.getElementById('term-body');
+    body.scrollTop = body.scrollHeight;
   }
 
   window.focusTerminal = function() {
@@ -276,14 +284,14 @@
 
   document.getElementById('term-input').addEventListener('keydown', function(e) {
     if (e.key !== 'Enter') return;
-    var val = this.value;
+    var val = this.value.trim();
     this.value = '';
+    if (!val) return;
     appendPrompt(val);
     var output = runCommand(val);
-    if (output) {
-      var body = document.getElementById('term-body');
-      output.forEach(function(node) { body.appendChild(node); });
-    }
+    if (output) output.forEach(function(node) {
+      document.getElementById('term-body').appendChild(node);
+    });
     scrollBottom();
   });
 

@@ -217,7 +217,20 @@ footer { background: var(--ink); padding: 44px 6%; display: flex; justify-conten
 .terminal {
   cursor: text;
   overflow-y: auto;
+  height: 420px;
   max-height: 420px;
+  display: flex;
+  flex-direction: column;
+}
+
+#term-body {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+#term-input-row {
+  flex-shrink: 0;
 }
 .terminal::-webkit-scrollbar { width: 4px; }
 .terminal::-webkit-scrollbar-track { background: transparent; }
