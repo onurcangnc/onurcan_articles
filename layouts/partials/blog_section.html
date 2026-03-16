@@ -1,57 +1,88 @@
 <section id="blog" style="background:var(--cream-2)">
   <div class="sec-label"><span class="sec-num">06</span><h2>Latest from the Blog</h2></div>
-  <div class="blog-grid">
-    {{ $rssURL := "https://blog.onurcangenc.com.tr/rss/" }}
-    {{ with resources.GetRemote $rssURL }}
-      {{ with .Content }}
-        {{ $rss := unmarshal . }}
-        {{ $items := slice }}
-        {{ with $rss.rss }}
-          {{ with .channel }}
-            {{ with .item }}
-              {{ $items = . }}
-            {{ end }}
-          {{ end }}
-        {{ end }}
-        {{ range first 4 $items }}
-          {{ $title := .title }}
-          {{ $link := .link }}
-          {{ $desc := .description | plainify | truncate 120 }}
-          {{ $date := "" }}
-          {{ with .pubDate }}
-            {{ $date = time . | dateFormat "Jan 2, 2006" }}
-          {{ end }}
-          {{ $tag := "Blog" }}
-          {{ with .category }}
-            {{ if reflect.IsSlice . }}
-              {{ $tag = index . 0 }}
-            {{ else }}
-              {{ $tag = . }}
-            {{ end }}
-          {{ end }}
-          <div class="blog-card">
-            <div class="blog-tag">{{ $tag }}</div>
-            <div class="blog-title">{{ $title }}</div>
-            <p class="blog-desc">{{ $desc }}</p>
-            <div class="blog-date">{{ $date }}</div>
-            <a href="{{ $link }}" target="_blank" class="blog-link">Read article ↗</a>
-          </div>
-        {{ end }}
-      {{ end }}
-    {{ else }}
-      {{/* Fallback if RSS fetch fails */}}
-      {{ range site.Data.site_data.blog_posts }}
-      <div class="blog-card">
-        <div class="blog-tag">{{ .tag }}</div>
-        <div class="blog-title">{{ .title }}</div>
-        <p class="blog-desc">{{ .desc }}</p>
-        <div class="blog-date">{{ .date }}</div>
-        <a href="{{ .link }}" target="_blank" class="blog-link">Read article ↗</a>
-      </div>
-      {{ end }}
-    {{ end }}
+  <div class="blog-grid" id="blog-grid">
+    <div class="blog-card" style="opacity:0.4">
+      <div class="blog-tag">Loading...</div>
+      <div class="blog-title">Fetching latest posts</div>
+    </div>
   </div>
   <div class="mt-24 text-center">
     <a href="{{ site.Params.blog }}" target="_blank" class="btn-line">View all posts ↗</a>
   </div>
 </section>
+
+<script>
+(function() {
+  var GHOST_URL = 'https://blog.onurcangenc.com.tr';
+  var API_KEY = '62497af2ba946ac87707d58885';
+  var LIMIT = 4;
+
+  function createCard(post) {
+    var tag = post.tags && post.tags.length > 0 ? post.tags[0].name : 'Blog';
+    var date = new Date(post.published_at).toLocaleDateString('en-US', {
+      year: 'numeric', month: 'short', day: 'numeric'
+    });
+    var excerpt = post.excerpt ? post.excerpt.substring(0, 120) + '...' : '';
+
+    var card = document.createElement('div');
+    card.className = 'blog-card';
+
+    var tagEl = document.createElement('div');
+    tagEl.className = 'blog-tag';
+    tagEl.textContent = tag;
+    card.appendChild(tagEl);
+
+    var titleEl = document.createElement('div');
+    titleEl.className = 'blog-title';
+    titleEl.textContent = post.title;
+    card.appendChild(titleEl);
+
+    var descEl = document.createElement('p');
+    descEl.className = 'blog-desc';
+    descEl.textContent = excerpt;
+    card.appendChild(descEl);
+
+    var dateEl = document.createElement('div');
+    dateEl.className = 'blog-date';
+    dateEl.textContent = date;
+    card.appendChild(dateEl);
+
+    var linkEl = document.createElement('a');
+    linkEl.className = 'blog-link';
+    linkEl.href = GHOST_URL + '/' + post.slug + '/';
+    linkEl.target = '_blank';
+    linkEl.textContent = 'Read article \u2197';
+    card.appendChild(linkEl);
+
+    return card;
+  }
+
+  fetch(GHOST_URL + '/ghost/api/content/posts/?key=' + API_KEY + '&limit=' + LIMIT + '&fields=title,slug,excerpt,published_at,tags&include=tags')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      var grid = document.getElementById('blog-grid');
+      if (!data.posts || data.posts.length === 0) return;
+      grid.replaceChildren();
+      data.posts.forEach(function(post) {
+        grid.appendChild(createCard(post));
+      });
+    })
+    .catch(function() {
+      // Fallback rendered by Hugo at build time is already in noscript
+    });
+})();
+</script>
+
+<noscript>
+  <div class="blog-grid">
+    {{ range site.Data.site_data.blog_posts }}
+    <div class="blog-card">
+      <div class="blog-tag">{{ .tag }}</div>
+      <div class="blog-title">{{ .title }}</div>
+      <p class="blog-desc">{{ .desc }}</p>
+      <div class="blog-date">{{ .date }}</div>
+      <a href="{{ .link }}" target="_blank" class="blog-link">Read article ↗</a>
+    </div>
+    {{ end }}
+  </div>
+</noscript>

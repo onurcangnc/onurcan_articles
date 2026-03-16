@@ -4,7 +4,7 @@
   title: "SQL Authentication Bypass in Fikir Odaları AdminPando v1.0.1"
   tags: ["CWE-89", "SQL Injection", "Auth Bypass"]
   source: "MITRE · Feb 2026"
-  link: "https://blog.onurcangenc.com.tr/posts/cve-2025-10878-sql-authentication-bypass-in-fikir-odaları-adminpando/"
+  link: "https://blog.onurcangenc.com.tr/cve-2025-10878/"
 
 - id: "CVE-2025-57520"
   cvss: "HIGH"
@@ -12,7 +12,7 @@
   title: "Stored XSS in Decap CMS ≤ 3.8.3 — payload executes in admin preview"
   tags: ["CWE-79", "Stored XSS", "Privilege Escalation"]
   source: "MITRE · Sep 2025"
-  link: "https://blog.onurcangenc.com.tr/posts/cve-2025-57520--stored-xss-in-decap-cms-3-8-3/"
+  link: "https://blog.onurcangenc.com.tr/cve-2025-57520-stored-xss-in-decap-cms-3-8-3/"
 
 - id: "CVE-2025-60506"
   cvss: "HIGH"
@@ -20,7 +20,7 @@
   title: "Stored XSS in Moodle PDF Annotator Plugin v1.5 r9"
   tags: ["CWE-79", "Moodle", "Session Hijack"]
   source: "MITRE · Oct 2025"
-  link: "https://blog.onurcangenc.com.tr/posts/cve-2025-60506-stored-cross-site-scripting-xss-in-moodle-pdf-annotator-plugin-v1-5-release-9/"
+  link: "https://blog.onurcangenc.com.tr/cve-2025-60506-stored-cross-site-scripting-xss-in-moodle-pdf-annotator-plugin-v1-5-release-9/"
 
 - id: "CVE-2025-60507"
   cvss: "HIGH"
@@ -28,7 +28,7 @@
   title: "Reflected & Stored XSS + Prompt Injection in Moodle GeniAI Plugin 2.3.6"
   tags: ["CWE-79", "Prompt Injection", "LLM"]
   source: "MITRE · Oct 2025"
-  link: "https://blog.onurcangenc.com.tr"
+  link: "https://blog.onurcangenc.com.tr/cve-2025-60507-moodle-geniai-plugin-v2-3-6-xss-via-pdf-upload-prompt-injection/"
 
 - id: "CVE-2025-60511"
   cvss: "MEDIUM"
@@ -36,7 +36,7 @@
   title: "IDOR in Moodle OpenAI Chat Block v3.0.1 — student impersonates admin"
   tags: ["CWE-639", "IDOR", "Privilege Escalation"]
   source: "MITRE · Oct 2025"
-  link: "https://blog.onurcangenc.com.tr"
+  link: "https://blog.onurcangenc.com.tr/cve-2025-60511/"
 
 - id: "CVE-2025-10228"
   cvss: "CVSS 8.8 · High"
@@ -44,4 +44,4 @@
   title: "Session Fixation in Agentis < v4.44 — session hijacking via CWE-384"
   tags: ["CWE-384", "Session Fixation"]
   source: "USOM · Oct 2025"
-  link: "https://blog.onurcangenc.com.tr"
+  link: "https://blog.onurcangenc.com.tr/cve-2025-10228/"
