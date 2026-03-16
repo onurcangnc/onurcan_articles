@@ -180,7 +180,7 @@ footer { background: var(--ink); padding: 44px 6%; display: flex; justify-conten
 
 /* === INTERACTIVE TERMINAL === */
 .term-title { font-family: var(--mono); font-size: 11px; color: #555; margin-left: 12px; letter-spacing: 0.03em; }
-.term-line { display: block; line-height: 1.85; font-family: var(--mono); font-size: 12px; white-space: pre-wrap; word-break: break-word; }
+.term-line { display: block; line-height: 1.85; font-family: var(--mono); font-size: 12px; white-space: pre-wrap; word-break: break-word; color: var(--cream); }
 .term-input-row { display: flex; align-items: center; font-family: var(--mono); font-size: 12px; padding-top: 6px; flex-shrink: 0; }
 .term-input { background: transparent; border: none; outline: none; color: #F5F0E8; font-family: var(--mono); font-size: 12px; flex: 1; caret-color: var(--coral); padding: 0; margin: 0; }
 .terminal { cursor: text; height: 420px; max-height: 420px; display: flex; flex-direction: column; overflow: hidden; }
