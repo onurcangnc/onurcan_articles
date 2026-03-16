@@ -57,7 +57,7 @@
     return card;
   }
 
-  fetch(GHOST_URL + '/ghost/api/content/posts/?key=' + API_KEY + '&limit=' + LIMIT + '&fields=title,slug,excerpt,published_at,tags&include=tags')
+  fetch('/.netlify/functions/ghost-posts')
     .then(function(r) { return r.json(); })
     .then(function(data) {
       var grid = document.getElementById('blog-grid');

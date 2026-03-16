@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "gotrue-js": "^0.9.29",
-    "jsonwebtoken": "^9.0.2"
+    "jsonwebtoken": "^9.0.2",
+    "node-fetch": "^2.7.0"
   },
   "name": "onurcan_articles",
   "version": "1.0.0",
