@@ -36,7 +36,7 @@
   title: "IDOR in Moodle OpenAI Chat Block v3.0.1 — student impersonates admin"
   tags: ["CWE-639", "IDOR", "Privilege Escalation"]
   source: "MITRE · Oct 2025"
-  link: "https://blog.onurcangenc.com.tr/cve-2025-60511/"
+  link: "https://blog.onurcangenc.com.tr/idor-in-moodle-openai-chat-block-block_openai_chat-proof-of-concept-poc-cve-2025-60511/"
 
 - id: "CVE-2025-10228"
   cvss: "CVSS 8.8 · High"
