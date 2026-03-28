@@ -4,7 +4,7 @@ exports.handler = async function() {
 
   try {
     const res = await fetch(
-      `${GHOST_URL}/ghost/api/content/posts/?key=${API_KEY}&limit=4&fields=title,slug,excerpt,published_at&include=tags&filter=tag:-vuln-research`
+      `${GHOST_URL}/ghost/api/content/posts/?key=${API_KEY}&limit=6&fields=title,slug,excerpt,published_at&include=tags&filter=tag:-vuln-research`
     );
     const data = await res.json();
     return {
