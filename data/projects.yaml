@@ -47,13 +47,6 @@
   tags: ["Python", "RAG", "Telegram"]
   link: "https://github.com/onurcangnc/Moodle_Student_Tracker"
 
-- name: "CVE-2025-10878 PoC"
-  category: "CVE PoC"
-  cat_class: "cat-cve"
-  desc: "SQL Injection auth bypass PoC for AdminPando v1.0.1. CVSS 10.0 Critical — full unauthenticated admin access."
-  tags: ["SQLi", "CVSS 10.0", "Auth Bypass"]
-  link: "https://github.com/onurcangnc/CVE-2025-10878-AdminPandov1.0.1-SQLi"
-
 - name: "CVE-2025-57520 PoC"
   category: "CVE PoC"
   cat_class: "cat-cve"

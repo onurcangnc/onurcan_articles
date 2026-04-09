@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ssh -o ConnectTimeout=10 root@46.37.115.3 \"systemctl status ghost* 2>/dev/null | head -30 || pm2 list 2>/dev/null || pgrep -a ghost\")"
+    ]
+  }
+}

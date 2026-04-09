@@ -10,18 +10,6 @@
   node_bundler = "esbuild"
 
 [[redirects]]
-  from = "/posts/cve-2025-10878-sql-authentication-bypass-in-fikir-odaları-adminpando/"
-  to = "https://blog.onurcangenc.com.tr/cve-2025-10878/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/posts/cve-2025-10878-sql-authentication-bypass-in-fikir-odalar%C4%B1-adminpando/"
-  to = "https://blog.onurcangenc.com.tr/cve-2025-10878/"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "/posts/cve-2025-57520--stored-xss-in-decap-cms-3-8-3/"
   to = "https://blog.onurcangenc.com.tr/cve-2025-57520-stored-xss-in-decap-cms-3-8-3/"
   status = 301
@@ -42,12 +30,6 @@
 [[redirects]]
   from = "/posts/cve-2025-60507-moodle-geniai-plugin-v2-3-6-xss-via-pdf-upload-prompt-injection/"
   to = "https://blog.onurcangenc.com.tr/cve-2025-60507-moodle-geniai-plugin-v2-3-6-xss-via-pdf-upload-prompt-injection/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/posts/cve-2025-10228-session-fixation-agentis/"
-  to = "https://blog.onurcangenc.com.tr/cve-2025-10228/"
   status = 301
   force = true
 

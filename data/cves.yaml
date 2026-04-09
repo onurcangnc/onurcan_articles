@@ -1,10 +1,10 @@
-- id: "CVE-2025-10878"
+- id: "CVE-2026-34156"
   cvss: "CVSS 10.0 · Critical"
   cvss_class: "c10"
-  title: "SQL Authentication Bypass in Fikir Odaları AdminPando v1.0.1"
-  tags: ["CWE-89", "SQL Injection", "Auth Bypass"]
-  source: "MITRE · Feb 2026"
-  link: "https://blog.onurcangenc.com.tr/cve-2025-10878/"
+  title: "VM Sandbox Escape to RCE in NocoBase Workflow Script Node"
+  tags: ["CWE-913", "Sandbox Escape", "RCE"]
+  source: "GitHub · Mar 2026"
+  link: "https://github.com/nocobase/nocobase/security/advisories/GHSA-px3p-vgh9-m57c"
 
 - id: "CVE-2025-57520"
   cvss: "HIGH"
@@ -37,11 +37,3 @@
   tags: ["CWE-639", "IDOR", "Privilege Escalation"]
   source: "MITRE · Oct 2025"
   link: "https://blog.onurcangenc.com.tr/idor-in-moodle-openai-chat-block-block_openai_chat-proof-of-concept-poc-cve-2025-60511/"
-
-- id: "CVE-2025-10228"
-  cvss: "CVSS 8.8 · High"
-  cvss_class: "ch"
-  title: "Session Fixation in Agentis < v4.44 — session hijacking via CWE-384"
-  tags: ["CWE-384", "Session Fixation"]
-  source: "USOM · Oct 2025"
-  link: "https://blog.onurcangenc.com.tr/cve-2025-10228/"
