@@ -9,6 +9,49 @@
 [functions]
   node_bundler = "esbuild"
 
+[build.processing]
+  [build.processing.html]
+    pretty_urls = true
+
+# --- Domain canonicalization ---
+[[redirects]]
+  from = "https://www.onurcangenc.com.tr/*"
+  to = "https://onurcangenc.com.tr/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+# --- 404 fixes ---
+[[redirects]]
+  from = "/posts/nucaıscan-*"
+  to = "https://blog.onurcangenc.com.tr/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posts/moodle-geniaı-*"
+  to = "https://blog.onurcangenc.com.tr/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posts/idor-in-moodle-openai-chat-block-block_openai_chat-proof-of-concept-poc--cve-2025-60511/"
+  to = "https://blog.onurcangenc.com.tr/idor-in-moodle-openai-chat-block-block_openai_chat-proof-of-concept-poc-cve-2025-60511/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/moodle-xss-pdfannotator"
+  to = "https://blog.onurcangenc.com.tr/"
+  status = 301
+  force = true
+
+# --- Post redirects to blog ---
 [[redirects]]
   from = "/posts/cve-2025-57520--stored-xss-in-decap-cms-3-8-3/"
   to = "https://blog.onurcangenc.com.tr/cve-2025-57520-stored-xss-in-decap-cms-3-8-3/"
