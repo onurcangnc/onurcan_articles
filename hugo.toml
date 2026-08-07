@@ -1,4 +1,4 @@
-baseURL = "https://onurcanarticles.netlify.app/"
+baseURL = "https://onurcangenc.com.tr/"
 languageCode = "en-us"
 title = "Onurcan Genç | Blog"
 
@@ -16,7 +16,7 @@ title = "Onurcan Genç | Blog"
   blog = "https://blog.onurcangenc.com.tr"
   cv_link = "/cv/onurcan_genc_ats.pdf"
   status = "Available for international opportunities"
-  description = "Application security engineer and AI red team researcher specializing in adversarial LLM attacks, web application security, and vulnerability discovery. 5 published CVEs via MITRE. eWPTXv3 certified. Former Deloitte CyberOps."
+  description = "AppSec engineer & AI red team researcher. 6 CVEs via MITRE, eWPTXv3 certified. Adversarial LLM attacks, web security, vulnerability discovery."
 
 [security]
   [security.http]

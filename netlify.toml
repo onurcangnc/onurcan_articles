@@ -13,6 +13,13 @@
   [build.processing.html]
     pretty_urls = true
 
+# --- Kill old Netlify subdomain ---
+[[redirects]]
+  from = "https://onurcanarticles.netlify.app/*"
+  to = "https://onurcangenc.com.tr/:splat"
+  status = 301
+  force = true
+
 # --- Domain canonicalization ---
 [[redirects]]
   from = "https://www.onurcangenc.com.tr/*"
