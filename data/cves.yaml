@@ -1,3 +1,15 @@
+- id: "CVE-2026-9558"
+  cvss: "CVSS 9.9 · Critical"
+  cvss_class: "c10"
+  title: "Mautic Theme Engine SSTI to RCE"
+  description: "Server-Side Template Injection vulnerability in Mautic's theme engine allows an attacker to achieve remote code execution (RCE) by uploading a specially crafted theme."
+  tags: ["CWE-1336", "SSTI", "RCE"]
+  source: "GitHub Advisory · 2026"
+  advisory: "GHSA-9fx4-7cmj-47vg"
+  credit: "Onurcan Genç"
+  status: "Patched · 4 branches patched via coordinated disclosure with maintainer John Linhart"
+  link: "https://github.com/advisories/GHSA-9fx4-7cmj-47vg"
+
 - id: "CVE-2026-34156"
   cvss: "CVSS 10.0 · Critical"
   cvss_class: "c10"
@@ -9,7 +21,7 @@
 - id: "CVE-2025-57520"
   cvss: "HIGH"
   cvss_class: "ch"
-  title: "Stored XSS in Decap CMS ≤ 3.8.3 — payload executes in admin preview"
+  title: "Stored XSS in Decap CMS ≤ 3.8.3: payload executes in admin preview"
   tags: ["CWE-79", "Stored XSS", "Privilege Escalation"]
   source: "MITRE · Sep 2025"
   link: "https://blog.onurcangenc.com.tr/cve-2025-57520-stored-xss-in-decap-cms-3-8-3/"
@@ -33,7 +45,7 @@
 - id: "CVE-2025-60511"
   cvss: "MEDIUM"
   cvss_class: "cm"
-  title: "IDOR in Moodle OpenAI Chat Block v3.0.1 — student impersonates admin"
+  title: "IDOR in Moodle OpenAI Chat Block v3.0.1: student impersonates admin"
   tags: ["CWE-639", "IDOR", "Privilege Escalation"]
   source: "MITRE · Oct 2025"
   link: "https://blog.onurcangenc.com.tr/idor-in-moodle-openai-chat-block-block_openai_chat-proof-of-concept-poc-cve-2025-60511/"

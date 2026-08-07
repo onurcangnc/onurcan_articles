@@ -2,17 +2,25 @@
   <div class="sec-label"><span class="sec-num">01</span><h2>Published Vulnerabilities</h2></div>
   <div class="cve-grid">
     {{ range site.Data.cves }}
-    <div class="cve-card">
+    <a class="cve-card" href="{{ .link }}" target="_blank" rel="noopener noreferrer">
       <div class="cve-top">
         <span class="cve-id">{{ .id }}</span>
         <span class="cvss {{ .cvss_class }}">{{ .cvss }}</span>
       </div>
       <div class="cve-title">{{ .title }}</div>
+      {{ with .description }}<p class="cve-desc">{{ . }}</p>{{ end }}
       <div class="cve-tags">
         {{ range .tags }}<span class="ct">{{ . }}</span>{{ end }}
       </div>
+      {{ if or .advisory .credit .status }}
+      <div class="cve-meta">
+        {{ with .advisory }}<span>{{ . }}</span>{{ end }}
+        {{ with .credit }}<span>Credited: {{ . }}</span>{{ end }}
+        {{ with .status }}<span>{{ . }}</span>{{ end }}
+      </div>
+      {{ end }}
       <div class="cve-source">{{ .source }}</div>
-    </div>
+    </a>
     {{ end }}
   </div>
 </section>

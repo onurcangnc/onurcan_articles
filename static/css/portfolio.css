@@ -82,7 +82,7 @@ h2 { font-family: var(--serif); font-size: clamp(26px, 3vw, 38px); font-weight: 
 
 /* === CVE === */
 .cve-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; background: var(--border); }
-.cve-card { background: var(--cream); padding: 28px; position: relative; cursor: pointer; transition: background 0.2s; }
+.cve-card { background: var(--cream); padding: 28px; position: relative; cursor: pointer; transition: background 0.2s; display: block; text-decoration: none; color: inherit; }
 .cve-card:hover { background: #fff; }
 .cve-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
 .cve-id { font-family: var(--mono); font-size: 12px; font-weight: 500; color: var(--ink); line-height: 1.4; }
@@ -91,8 +91,10 @@ h2 { font-family: var(--serif); font-size: clamp(26px, 3vw, 38px); font-weight: 
 .ch { background: var(--coral-l); color: var(--coral-d); }
 .cm { background: var(--teal-l); color: var(--teal); }
 .cve-title { font-size: 13px; font-weight: 500; margin-bottom: 10px; line-height: 1.5; color: var(--ink-2); }
+.cve-desc { font-size: 12px; color: var(--ink-3); line-height: 1.65; margin-bottom: 12px; }
 .cve-tags { display: flex; gap: 6px; flex-wrap: wrap; padding-bottom: 28px; }
 .ct { font-family: var(--mono); font-size: 10px; color: var(--ink-4); background: var(--cream-2); padding: 2px 7px; }
+.cve-meta { display: flex; flex-direction: column; gap: 4px; padding-bottom: 28px; font-family: var(--mono); font-size: 10px; color: var(--ink-4); line-height: 1.5; }
 .cve-source { position: absolute; bottom: 14px; right: 16px; font-family: var(--mono); font-size: 10px; color: var(--ink-4); }
 .cve-card:hover .cve-source { color: var(--coral); }
 

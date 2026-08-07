@@ -85,7 +85,7 @@
 
 [[redirects]]
   from = "/posts/*"
-  to = "https://blog.onurcangenc.com.tr/posts/:splat"
+  to = "https://blog.onurcangenc.com.tr/:splat"
   status = 301
   force = true
 

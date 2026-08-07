@@ -8,7 +8,7 @@ slug: "privacy"
 
 **Effective Date:** March 18, 2026
 
-This Privacy Policy explains how **Onurcan Genç — Security Researcher** ("we", "us", or "our") collects, uses, and protects information when you visit **https://onurcanarticles.netlify.app** (the "Site").
+This Privacy Policy explains how **Onurcan Genç, Security Researcher** ("we", "us", or "our") collects, uses, and protects information when you visit **https://onurcangenc.com.tr** (the "Site").
 
 ---
 
@@ -114,4 +114,4 @@ If you have any questions about this Privacy Policy, please contact:
 
 **Onurcan Genç**
 Email: [onurcangencbilkent@gmail.com](mailto:onurcangencbilkent@gmail.com)
-Website: [https://onurcanarticles.netlify.app](https://onurcanarticles.netlify.app)
+Website: [https://onurcangenc.com.tr](https://onurcangenc.com.tr)
