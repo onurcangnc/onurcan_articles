@@ -130,12 +130,6 @@
   force = true
 
 [[redirects]]
-  from = "/tags/project/"
-  to = "https://blog.onurcangenc.com.tr/tag/tools/"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "/tags/responsibledisclosure/"
   to = "https://blog.onurcangenc.com.tr/tag/vuln-research/"
   status = 301
