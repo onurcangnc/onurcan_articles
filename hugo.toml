@@ -23,5 +23,7 @@ title = "Onurcan Genç | Blog"
     methods = ['(?i)GET']
     urls = ['.*']
 
+[taxonomies]
+
 [build]
   writeStats = false
