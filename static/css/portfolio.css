@@ -1,4 +1,4 @@
-/* === PORTFOLIO.CSS — Onurcan Genç Portfolio === */
+/* === PORTFOLIO.CSS - Onurcan Genç Portfolio === */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap');
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -191,7 +191,7 @@ footer { background: var(--ink); padding: 44px 6%; display: flex; justify-conten
 .text-center { text-align: center; }
 
 /* ============================================
-   RESPONSIVE — ordered: 1024 → 860 → 640
+   RESPONSIVE - ordered: 1024 → 860 → 640
    ============================================ */
 
 @media (max-width: 1024px) {

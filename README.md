@@ -1,6 +1,6 @@
 # onurcan-portfolio
 
-Personal portfolio site for Onurcan Genç — Offensive Security & AI Red Team Researcher.
+Personal portfolio site for Onurcan Genç - Offensive Security & AI Red Team Researcher.
 
 ## Stack
 - Hugo (static site generator)
@@ -71,7 +71,7 @@ The `netlify.toml` handles:
 
 ## Updating Content
 
-All content is in `data/` — no HTML editing needed:
+All content is in `data/` - no HTML editing needed:
 
 - **New CVE** → add entry to `data/cves.yaml`
 - **New project** → add entry to `data/projects.yaml`

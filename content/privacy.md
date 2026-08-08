@@ -70,8 +70,8 @@ We use collected data solely to:
 
 Data may be shared only with:
 
-- **Google Analytics / Google AdSense** — as described above, subject to Google's privacy policies
-- **Law enforcement** — only if required by applicable law
+- **Google Analytics / Google AdSense** - as described above, subject to Google's privacy policies
+- **Law enforcement** - only if required by applicable law
 
 ---
 
@@ -79,12 +79,12 @@ Data may be shared only with:
 
 If you are located in the European Economic Area (EEA), you have the following rights under the General Data Protection Regulation (GDPR):
 
-- **Right of access** — request a copy of data we hold about you
-- **Right to rectification** — request correction of inaccurate data
-- **Right to erasure** — request deletion of your data ("right to be forgotten")
-- **Right to restrict processing** — request that we limit how we use your data
-- **Right to data portability** — receive your data in a structured, machine-readable format
-- **Right to object** — object to data processing based on legitimate interests
+- **Right of access** - request a copy of data we hold about you
+- **Right to rectification** - request correction of inaccurate data
+- **Right to erasure** - request deletion of your data ("right to be forgotten")
+- **Right to restrict processing** - request that we limit how we use your data
+- **Right to data portability** - receive your data in a structured, machine-readable format
+- **Right to object** - object to data processing based on legitimate interests
 
 To exercise any of these rights, contact us at the email address below.
 
