@@ -9,6 +9,9 @@ tags:
   - eWPT
   - Cybersecurity
   - Penetration Testing
+_build:
+  render: never
+  list: never
 ---
 Hi everyone! In this article, I’d like to share my **eWPT (eLearnSecurity Web Application Penetration Tester)** exam experience. I’ll walk you through my expectations before the test, my exam-day approach, the materials I used to prepare, and some final thoughts.  
 

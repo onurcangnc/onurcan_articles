@@ -12,6 +12,9 @@ tags:
 categories:
   - Cybersecurity
   - Tools
+_build:
+  render: never
+  list: never
 ---
 Hello everyone! About a week ago, I started working on a new idea that turned into a project I now call **NucAIScan**. Initially, I had no plans to build anything related to offensive security or cyber threat intelligence since my main focus was preparing for the **eWPTX exam**. But sometimes, inspiration shows up when you least expect it.  
 

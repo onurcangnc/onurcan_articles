@@ -1,3 +1,3 @@
 ---
-title: "Onurcan Genç — Security Researcher"
+title: "Onurcan Genç | Security Researcher"
 ---

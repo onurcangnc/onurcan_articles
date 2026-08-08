@@ -13,14 +13,13 @@
   [build.processing.html]
     pretty_urls = true
 
-# --- Kill old Netlify subdomain ---
+# ─── Hostname canonicalization ────────────────────────────────────────────────
 [[redirects]]
   from = "https://onurcanarticles.netlify.app/*"
   to = "https://onurcangenc.com.tr/:splat"
   status = 301
   force = true
 
-# --- Domain canonicalization ---
 [[redirects]]
   from = "https://www.onurcangenc.com.tr/*"
   to = "https://onurcangenc.com.tr/:splat"
@@ -33,32 +32,33 @@
   status = 301
   force = true
 
-# --- 404 fixes ---
+# ─── /blog/* legacy paths (NVD/MITRE reference URLs) ─────────────────────────
 [[redirects]]
-  from = "/posts/nucaıscan-*"
-  to = "https://blog.onurcangenc.com.tr/"
+  from = "/blog/decap-cms-xss-analysis"
+  to = "https://blog.onurcangenc.com.tr/cve-2025-57520-stored-xss-in-decap-cms-3-8-3/"
   status = 301
   force = true
 
 [[redirects]]
-  from = "/posts/moodle-geniaı-*"
+  from = "/blog/moodle-xss-pdfannotator"
+  to = "https://blog.onurcangenc.com.tr/cve-2025-60506-stored-cross-site-scripting-xss-in-moodle-pdf-annotator-plugin-v1-5-release-9/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/*"
   to = "https://blog.onurcangenc.com.tr/"
   status = 301
   force = true
 
+# ─── /posts/* legacy article redirects ────────────────────────────────────────
+# Specific slug mappings (Hugo filenames had Unicode dashes/chars)
 [[redirects]]
   from = "/posts/idor-in-moodle-openai-chat-block-block_openai_chat-proof-of-concept-poc--cve-2025-60511/"
   to = "https://blog.onurcangenc.com.tr/idor-in-moodle-openai-chat-block-block_openai_chat-proof-of-concept-poc-cve-2025-60511/"
   status = 301
   force = true
 
-[[redirects]]
-  from = "/blog/moodle-xss-pdfannotator"
-  to = "https://blog.onurcangenc.com.tr/"
-  status = 301
-  force = true
-
-# --- Post redirects to blog ---
 [[redirects]]
   from = "/posts/cve-2025-57520--stored-xss-in-decap-cms-3-8-3/"
   to = "https://blog.onurcangenc.com.tr/cve-2025-57520-stored-xss-in-decap-cms-3-8-3/"
@@ -72,24 +72,77 @@
   force = true
 
 [[redirects]]
-  from = "/posts/cve-2025-60511/"
-  to = "https://blog.onurcangenc.com.tr/cve-2025-60511/"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "/posts/cve-2025-60507-moodle-geniai-plugin-v2-3-6-xss-via-pdf-upload-prompt-injection/"
   to = "https://blog.onurcangenc.com.tr/cve-2025-60507-moodle-geniai-plugin-v2-3-6-xss-via-pdf-upload-prompt-injection/"
   status = 301
   force = true
 
 [[redirects]]
+  from = "/posts/cve-2025-60511/"
+  to = "https://blog.onurcangenc.com.tr/idor-in-moodle-openai-chat-block-block_openai_chat-proof-of-concept-poc-cve-2025-60511/"
+  status = 301
+  force = true
+
+# Turkish-character slugs
+[[redirects]]
+  from = "/posts/nucaıscan-*"
+  to = "https://blog.onurcangenc.com.tr/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posts/moodle-geniaı-*"
+  to = "https://blog.onurcangenc.com.tr/cve-2025-60507-moodle-geniai-plugin-v2-3-6-xss-via-pdf-upload-prompt-injection/"
+  status = 301
+  force = true
+
+# eWPT guide (no Ghost equivalent)
+[[redirects]]
+  from = "/posts/img-src-x-onerror-alert-1/"
+  to = "https://blog.onurcangenc.com.tr/"
+  status = 301
+  force = true
+
+# Catch-all: any other /posts/ slug → try exact match on blog
+[[redirects]]
   from = "/posts/*"
   to = "https://blog.onurcangenc.com.tr/:splat"
   status = 301
   force = true
 
+# ─── /tags/* legacy taxonomy redirects ────────────────────────────────────────
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  from = "/tags/cybersecurity/"
+  to = "https://blog.onurcangenc.com.tr/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tags/penetration-testing/"
+  to = "https://blog.onurcangenc.com.tr/tag/penetration-testing/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tags/ewpt/"
+  to = "https://blog.onurcangenc.com.tr/tag/certs/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tags/project/"
+  to = "https://blog.onurcangenc.com.tr/tag/tools/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tags/responsibledisclosure/"
+  to = "https://blog.onurcangenc.com.tr/tag/vuln-research/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tags/*"
+  to = "https://blog.onurcangenc.com.tr/"
+  status = 301
+  force = true
